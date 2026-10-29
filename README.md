@@ -28,11 +28,11 @@
 
 <a id="section-2"></a>
 
-# 2. Navigation Tasks
+## 2. Navigation Tasks
 
 <a id="section-2-1"></a>
 
-## 2.1 Geometric Goal Navigation
+### 2.1 Geometric Goal Navigation
 
 Navigation to target coordinates, poses, or waypoint sequences, including settings with perfect localization, no ground-truth localization, sensor noise, and real robots.
 
@@ -70,7 +70,7 @@ Navigation to target coordinates, poses, or waypoint sequences, including settin
 
 <a id="section-2-2"></a>
 
-## 2.2 Visual Goal Navigation
+### 2.2 Visual Goal Navigation
 
 Goals specified by reference images, panoramic images, or images of specific object instances, covering image-goal, instance-image-goal, and multimodal navigation.
 
@@ -150,7 +150,7 @@ Goals specified by reference images, panoramic images, or images of specific obj
 
 <a id="section-2-3"></a>
 
-## 2.3 Semantic Goal Navigation
+### 2.3 Semantic Goal Navigation
 
 Goals specified by object categories, room categories, or open-vocabulary semantic descriptions, covering semantic, object-goal, and open-vocabulary navigation.
 
@@ -230,7 +230,7 @@ Goals specified by object categories, room categories, or open-vocabulary semant
 
 <a id="section-2-4"></a>
 
-## 2.4 Language-Guided Navigation
+### 2.4 Language-Guided Navigation
 
 Navigation from natural-language goals, route instructions, or multi-turn dialogue across discrete and continuous indoor and outdoor environments, including foundation model-based approaches.
 
@@ -328,7 +328,7 @@ Navigation from natural-language goals, route instructions, or multi-turn dialog
 
 <a id="section-2-5"></a>
 
-## 2.5 Autonomous Exploration
+### 2.5 Autonomous Exploration
 
 Actions selected to acquire information, discover unknown areas, or build maps, covering single-robot and multi-robot exploration with geometric planning and learned policies.
 
@@ -410,7 +410,7 @@ Actions selected to acquire information, discover unknown areas, or build maps, 
 
 <a id="section-2-6"></a>
 
-## 2.6 Coverage and Inspection
+### 2.6 Coverage and Inspection
 
 Motion planning for area coverage, surface observation, and inspection, including ground coverage, agricultural operations, aerial inspection, and structural inspection.
 
@@ -456,7 +456,7 @@ Motion planning for area coverage, surface observation, and inspection, includin
 
 <a id="section-2-7"></a>
 
-## 2.7 Moving Target Following
+### 2.7 Moving Target Following
 
 Continuous following of moving people or objects, including person following, target reacquisition after occlusion, embodied visual tracking, and aerial cinematography.
 
@@ -506,11 +506,11 @@ Continuous following of moving people or objects, including person following, ta
 
 <a id="section-3"></a>
 
-# 3. Navigation Methods and Core Capabilities
+## 3. Navigation Methods and Core Capabilities
 
 <a id="section-3-1"></a>
 
-## 3.1 Foundation Model-Based Navigation
+### 3.1 Foundation Model-Based Navigation
 
 Pretrained language, vision-language, and vision-language-action models for goal understanding, semantic grounding, navigation reasoning, planning, and action generation.
 
@@ -596,7 +596,7 @@ Pretrained language, vision-language, and vision-language-action models for goal
 
 <a id="section-3-2"></a>
 
-## 3.2 World Model-Based Navigation
+### 3.2 World Model-Based Navigation
 
 Action-conditioned prediction, latent dynamics, and imagined future observations for navigation planning, policy learning, and closed-loop decision making.
 
@@ -680,7 +680,7 @@ Action-conditioned prediction, latent dynamics, and imagined future observations
 
 <a id="section-3-3"></a>
 
-## 3.3 End-to-End Navigation and Policy Learning
+### 3.3 End-to-End Navigation and Policy Learning
 
 Supervised learning, imitation learning, reinforcement learning, and generative policies that map observations and goals to navigation actions or waypoints, including policy pretraining, online adaptation, and transfer across robot platforms.
 
@@ -766,7 +766,7 @@ Supervised learning, imitation learning, reinforcement learning, and generative 
 
 <a id="section-3-4"></a>
 
-## 3.4 Perception, Representation, and Memory
+### 3.4 Perception, Representation, and Memory
 
 Feature extraction and matching, optical flow and point tracking, depth and 3D perception, traversability estimation, navigation representations, spatial representations, and memory.
 
@@ -844,7 +844,7 @@ Feature extraction and matching, optical flow and point tracking, depth and 3D p
 
 <a id="section-3-5"></a>
 
-## 3.5 Odometry and State Estimation
+### 3.5 Odometry and State Estimation
 
 Visual, inertial, LiDAR, radar, and event-camera odometry, together with multi-sensor fusion, motion preintegration, invariant filtering, and state estimation for legged robots.
 
@@ -930,7 +930,7 @@ Visual, inertial, LiDAR, radar, and event-camera odometry, together with multi-s
 
 <a id="section-3-6"></a>
 
-## 3.6 Localization and Mapping
+### 3.6 Localization and Mapping
 
 Visual and LiDAR SLAM, relocalization and place recognition, loop closure, graph optimization, and mapping with voxels, implicit fields, 3D Gaussians, and semantic scene graphs.
 
@@ -1026,7 +1026,7 @@ Visual and LiDAR SLAM, relocalization and place recognition, loop closure, graph
 
 <a id="section-3-7"></a>
 
-## 3.7 Path Planning and Decision Making
+### 3.7 Path Planning and Decision Making
 
 Heuristic search, sampling-based planning, trajectory optimization, predictive control, collision avoidance, and multi-robot coordination, together with differentiable planning, generative planning, and decision making under uncertainty.
 
@@ -1122,28 +1122,28 @@ Heuristic search, sampling-based planning, trajectory optimization, predictive c
 
 <a id="section-4"></a>
 
-# 4. Robot Platforms
+## 4. Robot Platforms
 
 <a id="section-4-1"></a>
 
-## 4.1 Unmanned Aerial Vehicles
+### 4.1 Unmanned Aerial Vehicles
 
 <a id="section-4-2"></a>
 
-## 4.2 Wheeled Robots
+### 4.2 Wheeled Robots
 
 <a id="section-4-3"></a>
 
-## 4.3 Humanoid Robots
+### 4.3 Humanoid Robots
 
 <a id="section-4-4"></a>
 
-## 4.4 Quadruped Robots
+### 4.4 Quadruped Robots
 
 <a id="section-4-5"></a>
 
-## 4.5 Underwater Robots
+### 4.5 Underwater Robots
 
 <a id="section-4-6"></a>
 
-## 4.6 Other and Hybrid Platforms
+### 4.6 Other and Hybrid Platforms
