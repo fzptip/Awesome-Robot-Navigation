@@ -1,4 +1,4 @@
-# Awesome-Robot-Navigation
+# Awesome Robot Navigation [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 **Table of Contents**
 
