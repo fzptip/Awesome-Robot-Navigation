@@ -2,6 +2,9 @@
 
 **Table of Contents**
 
+- [1. Overview and Surveys](#section-1)
+  - [1.3 Surveys and Reviews](#section-1-3)
+  - [1.4 Tutorials and Learning Resources](#section-1-4)
 - [2. Navigation Tasks](#section-2)
   - [2.1 Geometric Goal Navigation](#section-2-1)
   - [2.2 Visual Goal Navigation](#section-2-2)
@@ -25,6 +28,88 @@
   - [4.4 Quadruped Robots](#section-4-4)
   - [4.5 Underwater Robots](#section-4-5)
   - [4.6 Other and Hybrid Platforms](#section-4-6)
+- [5. Datasets and Evaluation Benchmarks](#section-5)
+  - [5.1 Odometry, Localization, and Mapping Datasets](#section-5-1)
+  - [5.2 Navigation Task Datasets and Benchmarks](#section-5-2)
+  - [5.3 Real-Robot and Cross-Platform Data](#section-5-3)
+  - [5.4 Evaluation Metrics and Experimental Protocols](#section-5-4)
+  - [5.5 Competitions and Leaderboards](#section-5-5)
+
+<a id="section-1"></a>
+
+## 1. Overview and Surveys
+
+<a id="section-1-3"></a>
+
+### 1.3 Surveys and Reviews
+
+Surveys of robot navigation tasks and methods, covering embodied and language-guided navigation, foundation models, world models, exploration, SLAM, perception, planning, and social navigation.
+
+- [World model for robot learning: A comprehensive survey](https://doi.org/10.1177/02783649261488980), Hou et al., IJRR 2026.
+
+- [Robot Navigation via Foundation Language Models: A Review](https://doi.org/10.1145/3802539), Pan et al., ACM Computing Surveys 2026.
+
+- [Multi-Robot System for Cooperative Exploration in Unknown Environments: A Survey](https://arxiv.org/abs/2503.07278), Wang et al., arXiv 2025.
+
+- [A Survey of Object Goal Navigation](https://doi.org/10.1109/tase.2024.3378010), Sun et al., TASE 2025.
+
+- [Vision-and-Language Navigation Today and Tomorrow: A Survey in the Era of Foundation Models](https://arxiv.org/abs/2407.07035), Zhang et al., TMLR 2024.
+
+- [Embodied navigation with multi-modal information: A survey from tasks to methodology](https://doi.org/10.1016/j.inffus.2024.102532), Wu et al., Information Fusion 2024.
+
+- [A Comprehensive Review of Mobile Robot Navigation Using Deep Reinforcement Learning Algorithms in Crowded Environments](https://doi.org/10.1007/s10846-024-02198-w), Le et al., Journal of Intelligent & Robotic Systems 2024.
+
+- [Bridging Requirements, Planning, and Evaluation: A Review of Social Robot Navigation](https://doi.org/10.3390/s24092794), Karwowski et al., Sensors 2024.
+
+- [A Survey on Active Simultaneous Localization and Mapping: State of the Art and New Frontiers](https://doi.org/10.1109/tro.2023.3248510), Placed et al., TRO 2023.
+
+- [Event-Based Vision: A Survey](https://doi.org/10.1109/tpami.2020.3008413), Gallego et al., TPAMI 2022.
+
+- [Survey of UAV motion planning](https://doi.org/10.1049/iet-csr.2020.0004), Quan et al., IET Cyber-Systems and Robotics 2020.
+
+- [Past, Present, and Future of Simultaneous Localization and Mapping: Toward the Robust-Perception Age](https://doi.org/10.1109/tro.2016.2624754), Cadena et al., TRO 2016.
+
+- [Visual Place Recognition: A Survey](https://doi.org/10.1109/tro.2015.2496823), Lowry et al., TRO 2016.
+
+- [Sampling-Based Robot Motion Planning: A Review](https://doi.org/10.1109/access.2014.2302442), Elbanhawi et al., IEEE Access 2014.
+
+- [A survey on coverage path planning for robotics](https://doi.org/10.1016/j.robot.2013.09.004), Galceran et al., Robotics and Autonomous Systems 2013.
+
+<a id="section-1-4"></a>
+
+### 1.4 Tutorials and Learning Resources
+
+Textbooks, tutorial monographs, university courses, and official documentation for mobile robotics, state estimation, planning, reinforcement learning, simulation, and robot deployment.
+
+- [State Estimation for Robotics](https://www.cambridge.org/core/books/state-estimation-for-robotics/00E53274A2F1E6CC1A55CA5C3D1C9718), Barfoot, Cambridge University Press, 2nd ed. 2024.
+
+- [Reinforcement Learning: An Introduction](https://mitpress.mit.edu/9780262039246/reinforcement-learning/), Sutton and Barto, MIT Press, 2nd ed. 2018.
+
+- [Factor Graphs for Robot Perception](https://doi.org/10.1561/2300000043), Dellaert et al., Foundations and Trends in Robotics 2017.
+
+- [Modern Robotics: Mechanics, Planning, and Control](https://modernrobotics.northwestern.edu/), Lynch and Park, Cambridge University Press 2017.
+
+- [Introduction to Autonomous Mobile Robots](https://mitpress.mit.edu/9780262015356/introduction-to-autonomous-mobile-robots/), Siegwart et al., MIT Press, 2nd ed. 2011.
+
+- [Planning Algorithms](https://lavalle.pl/planning/), LaValle, Cambridge University Press 2006.
+
+- [Probabilistic Robotics](https://mitpress.mit.edu/9780262303804/probabilistic-robotics/), Thrun et al., MIT Press 2005.
+
+- [Autonomous Mobile Robots](https://asl.ethz.ch/education/lectures/autonomous_mobile_robots.html), ETH Zurich Autonomous Systems Lab. Official course materials.
+
+- [Underactuated Robotics](https://underactuated.mit.edu/), Tedrake, MIT. Official online textbook and course notes.
+
+- [Deep Reinforcement Learning (CS185/285)](https://rail.eecs.berkeley.edu/deeprlcourse/), UC Berkeley. Official course materials.
+
+- [Habitat Lab Documentation](https://aihabitat.org/docs/habitat-lab/), Habitat Team. Official documentation and tutorials.
+
+- [ROS 2 Tutorials](https://docs.ros.org/en/rolling/Tutorials.html), ROS 2 Project. Official tutorials.
+
+- [Nav2 Documentation](https://docs.nav2.org/), Nav2 Team. Official documentation and tutorials.
+
+- [Getting Started with Gazebo](https://gazebosim.org/docs/latest/getstarted/), Gazebo Project. Official documentation and tutorials.
+
+- [PX4 Autopilot User Guide](https://docs.px4.io/main/en/), PX4 Project. Official documentation and tutorials.
 
 <a id="section-2"></a>
 
@@ -1128,22 +1213,287 @@ Heuristic search, sampling-based planning, trajectory optimization, predictive c
 
 ### 4.1 Unmanned Aerial Vehicles
 
+Navigation for aerial robots, including language-guided flight, visual homing, drone racing, high-speed obstacle avoidance, trajectory planning, and decentralized swarm flight.
+
+- [AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild](https://arxiv.org/abs/2602.09657), Sun et al., ICLR 2026.
+
+- [Efficient robot navigation inspired by honeybee learning flights](https://doi.org/10.1038/s41586-026-10461-3), Ou et al., Nature 2026.
+
+- [Learning vision-based agile flight via differentiable physics](https://doi.org/10.1038/s42256-025-01048-0), Zhang et al., Nature Machine Intelligence 2025.
+
+- [Champion-level drone racing using deep reinforcement learning](https://doi.org/10.1038/s41586-023-06419-4), Kaufmann et al., Nature 2023.
+
+- [FASTER: Fast and Safe Trajectory Planner for Navigation in Unknown Environments](https://doi.org/10.1109/tro.2021.3100142), Tordesillas et al., TRO 2022.
+
+- [Learning high-speed flight in the wild](https://doi.org/10.1126/scirobotics.abg5810), Loquercio et al., Science Robotics 2021.
+
+- [EGO-Planner: An ESDF-Free Gradient-Based Local Planner for Quadrotors](https://doi.org/10.1109/lra.2020.3047728), Zhou et al., RA-L 2021.
+
+- [EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor Swarm System in Cluttered Environments](https://doi.org/10.1109/icra48506.2021.9561902), Zhou et al., ICRA 2021.
+
+- [RAPTOR: Robust and Perception-Aware Trajectory Replanning for Quadrotor Fast Flight](https://doi.org/10.1109/tro.2021.3071527), Zhou et al., TRO 2021.
+
+- [Dynamic obstacle avoidance for quadrotors with event cameras](https://doi.org/10.1126/scirobotics.aaz9712), Falanga et al., Science Robotics 2020.
+
+- [Robust and Efficient Quadrotor Trajectory Generation for Fast Autonomous Flight](https://doi.org/10.1109/lra.2019.2927938), Zhou et al., RA-L 2019.
+
+- [DroNet: Learning to Fly by Driving](https://doi.org/10.1109/lra.2018.2795643), Loquercio et al., RA-L 2018.
+
 <a id="section-4-2"></a>
 
 ### 4.2 Wheeled Robots
+
+Navigation for wheeled mobile robots, covering foundation models, visual and language-conditioned goals, long-range exploration, off-road driving, and socially aware motion planning.
+
+- [From Seeing to Experiencing: Scaling Navigation Foundation Models with Reinforcement Learning](https://proceedings.iclr.cc/paper_files/paper/2026/hash/125be378b39b10676f56e12e6923b902-Abstract-Conference.html), He et al., ICLR 2026.
+
+- [Embodied Navigation Foundation Model](https://proceedings.iclr.cc/paper_files/paper/2026/hash/ceb45c48e29e7f49b0b47edb98e43691-Abstract-Conference.html), Zhang et al., ICLR 2026.
+
+- [NoMaD: Goal Masked Diffusion Policies for Navigation and Exploration](https://doi.org/10.1109/icra57147.2024.10610665), Sridhar et al., ICRA 2024.
+
+- [ViNT: A Foundation Model for Visual Navigation](https://proceedings.mlr.press/v229/shah23a.html), Shah et al., CoRL 2023.
+
+- [GNM: A General Navigation Model to Drive Any Robot](https://doi.org/10.1109/icra48891.2023.10161227), Shah et al., ICRA 2023.
+
+- [FastRLAP: A System for Learning High-Speed Driving via Deep RL and Autonomous Practicing](https://proceedings.mlr.press/v229/stachowicz23a.html), Stachowicz et al., CoRL 2023.
+
+- [Visual Language Maps for Robot Navigation](https://doi.org/10.1109/icra48891.2023.10160969), Huang et al., ICRA 2023.
+
+- [ViKiNG: Vision-Based Kilometer-Scale Navigation with Geographic Hints](https://doi.org/10.15607/rss.2022.xviii.019), Shah et al., RSS 2022.
+
+- [LM-Nav: Robotic Navigation with Large Pre-Trained Models of Language, Vision, and Action](https://proceedings.mlr.press/v205/shah23b.html), Shah et al., CoRL 2022.
+
+- [BADGR: An Autonomous Self-Supervised Learning-Based Navigation System](https://doi.org/10.1109/lra.2021.3057023), Kahn et al., RA-L 2021.
+
+- [ViNG: Learning Open-World Navigation with Visual Goals](https://doi.org/10.1109/icra48506.2021.9561936), Shah et al., ICRA 2021.
+
+- [Socially aware motion planning with deep reinforcement learning](https://doi.org/10.1109/iros.2017.8202312), Chen et al., IROS 2017.
 
 <a id="section-4-3"></a>
 
 ### 4.3 Humanoid Robots
 
+Navigation for humanoid robots, including whole-body adaptation, human-to-robot transfer, terrain-aware navigation, footstep planning, and coordinated navigation, locomotion, and reaching.
+
+- [TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model](https://arxiv.org/abs/2609.09158), Li et al., arXiv 2026.
+
+- [Learning Humanoid Navigation From Human Data](https://doi.org/10.1109/lra.2026.3710346), Wang et al., RA-L 2026.
+
+- [Learning Safe Humanoid Navigation from Reduced Order Models](https://arxiv.org/abs/2609.19272), Compton et al., arXiv 2026.
+
+- [GuideWalk: Learning Unified Autonomous Navigation and Locomotion for Humanoid Robots across Versatile Terrains](https://arxiv.org/abs/2606.10449), Han et al., arXiv 2026.
+
+- [Hand-Eye Autonomous Delivery: Learning Humanoid Navigation, Locomotion and Reaching](https://proceedings.mlr.press/v305/chen25e.html), Chen et al., CoRL 2025.
+
+- [NaVILA: Legged Robot Vision-Language-Action Model for Navigation](https://doi.org/10.15607/rss.2025.xxi.018), Cheng et al., RSS 2025.
+
+- [Real Time Humanoid Footstep Planning With Foot Angle Difference Consideration for Cost-To-Go Heuristic](https://doi.org/10.1109/ur57808.2023.10202504), Kim et al., UR 2023.
+
+- [Humanoid navigation with dynamic footstep plans](https://doi.org/10.1109/icra.2011.5979656), Garimort et al., ICRA 2011.
+
 <a id="section-4-4"></a>
 
 ### 4.4 Quadruped Robots
 
+Navigation and perceptive terrain traversal for quadruped robots, including semantic planning, traversability estimation, parkour, navigation-locomotion coordination, and human guidance.
+
+- [MulDP: Multimodal Diffusion Policy for Autonomous Quadruped Parkour Navigation across Complex Terrains](https://arxiv.org/abs/2609.03984), Hu et al., IROS 2026.
+
+- [Wild visual navigation: fast traversability learning via pre-trained models and online self-supervision](https://doi.org/10.1007/s10514-025-10202-x), Mattamala et al., Autonomous Robots 2025.
+
+- [High-speed control and navigation for quadrupedal robots on complex and discrete terrain](https://doi.org/10.1126/scirobotics.ads6192), Kim et al., Science Robotics 2025.
+
+- [ViPlanner: Visual Semantic Imperative Learning for Local Navigation](https://doi.org/10.1109/icra57147.2024.10610025), Roth et al., ICRA 2024.
+
+- [ANYmal parkour: Learning agile navigation for quadrupedal robots](https://doi.org/10.1126/scirobotics.adi7566), Hoeller et al., Science Robotics 2024.
+
+- [Extreme Parkour with Legged Robots](https://doi.org/10.1109/icra57147.2024.10610200), Cheng et al., ICRA 2024.
+
+- [PIE: Parkour With Implicit-Explicit Learning Framework for Legged Robots](https://doi.org/10.1109/lra.2024.3459797), Luo et al., RA-L 2024.
+
+- [Robot Parkour Learning](https://proceedings.mlr.press/v229/zhuang23a.html), Zhuang et al., CoRL 2023.
+
+- [Seeing-Eye Quadruped Navigation with Force Responsive Locomotion Control](https://proceedings.mlr.press/v229/defazio23a.html), DeFazio et al., CoRL 2023.
+
+- [Learning robust perceptive locomotion for quadrupedal robots in the wild](https://doi.org/10.1126/scirobotics.abk2822), Miki et al., Science Robotics 2022.
+
+- [Learning Vision-Guided Quadrupedal Locomotion End-to-End with Cross-Modal Transformers](https://openreview.net/forum?id=nhnJ3oo6AB), Yang et al., ICLR 2022.
+
+- [Learning a State Representation and Navigation in Cluttered and Dynamic Environments](https://doi.org/10.1109/lra.2021.3068639), Hoeller et al., RA-L 2021.
 <a id="section-4-5"></a>
 
 ### 4.5 Underwater Robots
 
+Navigation for underwater robots, including dynamics-aware policies, flow sensing, acoustic and visual docking, ecosystem exploration, and visual, inertial, sonar, and depth fusion.
+
+- [AquaWAM: A Dynamics-aware World Action Model for Underwater Embodied Agents](https://arxiv.org/abs/2609.33299), Zhu et al., arXiv 2026.
+
+- [Sensing flow gradients is necessary for learning autonomous underwater navigation](https://doi.org/10.1038/s41467-025-58125-6), Jiao et al., Nature Communications 2025.
+
+- [Position-based acoustic visual servo control for docking of autonomous underwater vehicle using deep reinforcement learning](https://doi.org/10.1016/j.robot.2024.104914), Wang et al., Robotics and Autonomous Systems 2025.
+
+- [Underwater Pose SLAM using GMM scan matching for a mechanical profiling sonar](https://doi.org/10.1002/rob.22272), Vial et al., Journal of Field Robotics 2024.
+
+- [CUREE: A Curious Underwater Robot for Ecosystem Exploration](https://doi.org/10.1109/icra48891.2023.10161282), Girdhar et al., ICRA 2023.
+
+- [SVIn2: A multi-sensor fusion-based underwater SLAM system](https://doi.org/10.1177/02783649221110259), Rahman et al., IJRR 2022.
+
+- [Autonomous Underwater Navigation and Optical Mapping in Unknown Natural Environments](https://doi.org/10.3390/s16081174), Hernández et al., Sensors 2016.
+
+- [Visually Augmented Navigation for Autonomous Underwater Vehicles](https://doi.org/10.1109/joe.2008.923547), Eustice et al., IEEE Journal of Oceanic Engineering 2008.
+
 <a id="section-4-6"></a>
 
 ### 4.6 Other and Hybrid Platforms
+
+Navigation for wheeled-legged, aerial-ground, aerial-underwater, snake-like, and surface robots, together with exploration systems combining heterogeneous robot platforms.
+
+- [Image-based Mapless Navigation of a Hybrid Aerial-Underwater Vehicle using Prioritized Deep Reinforcement Learning](https://doi.org/10.1007/s10846-024-02206-z), Costa de Jesus et al., Journal of Intelligent & Robotic Systems 2025.
+
+- [Learning robust autonomous navigation and locomotion for wheeled-legged robots](https://doi.org/10.1126/scirobotics.adi9641), Lee et al., Science Robotics 2024.
+
+- [HE-Nav: A High-Performance and Efficient Navigation System for Aerial-Ground Robots in Cluttered Environments](https://doi.org/10.1109/lra.2024.3468091), Wang et al., RA-L 2024.
+
+- [Multi-Modal Mobility Morphobot (M4) with appendage repurposing for locomotion plasticity enhancement](https://doi.org/10.1038/s41467-023-39018-y), Sihite et al., Nature Communications 2023.
+
+- [CERBERUS: Autonomous Legged and Aerial Robotic Exploration in the Tunnel and Urban Circuits of the DARPA Subterranean Challenge](https://doi.org/10.55417/fr.2022011), Tranzatto et al., Field Robotics 2022.
+
+- [Autonomous Decentralized Shape-Based Navigation for Snake Robots in Dense Environments](https://doi.org/10.1109/icra48506.2021.9561987), Sartoretti et al., ICRA 2021.
+
+- [Roboat II: A Novel Autonomous Surface Vessel for Urban Environments](https://doi.org/10.1109/iros45743.2020.9340712), Wang et al., IROS 2020.
+
+- [Autonomous Hybrid Ground/Aerial Mobility in Unknown Environments](https://doi.org/10.1109/iros40897.2019.8968276), Fan et al., IROS 2019.
+
+<a id="section-5"></a>
+
+## 5. Datasets and Evaluation Benchmarks
+
+<a id="section-5-1"></a>
+
+### 5.1 Odometry, Localization, and Mapping Datasets
+
+Real and synthetic visual, inertial, LiDAR, radar, and event-camera datasets for odometry and SLAM across platforms, motion regimes, and challenging environments.
+
+- [FusionPortableV2: A unified multi-sensor dataset for generalized SLAM across diverse platforms and scalable environments](https://doi.org/10.1177/02783649241303525), Wei et al., IJRR 2025.
+
+- [SubT-MRS Dataset: Pushing SLAM Towards All-weather Environments](https://doi.org/10.1109/cvpr52733.2024.02137), Zhao et al., CVPR 2024.
+
+- [Boreas: A multi-season autonomous driving dataset](https://doi.org/10.1177/02783649231160195), Burnett et al., IJRR 2023.
+
+- [M2DGR: A Multi-Sensor and Multi-Scenario SLAM Dataset for Ground Robots](https://doi.org/10.1109/lra.2021.3138527), Yin et al., RA-L 2022.
+
+- [The Hilti SLAM Challenge Dataset](https://doi.org/10.1109/lra.2022.3183759), Helmberger et al., RA-L 2022.
+
+- [TartanAir: A Dataset to Push the Limits of Visual SLAM](https://doi.org/10.1109/iros45743.2020.9341801), Wang et al., IROS 2020.
+
+- [The Oxford Radar RobotCar Dataset: A Radar Extension to the Oxford RobotCar Dataset](https://doi.org/10.1109/icra40945.2020.9196884), Barnes et al., ICRA 2020.
+
+- [Are We Ready for Autonomous Drone Racing? The UZH-FPV Drone Racing Dataset](https://doi.org/10.1109/icra.2019.8793887), Delmerico et al., ICRA 2019.
+
+- [The TUM VI Benchmark for Evaluating Visual-Inertial Odometry](https://doi.org/10.1109/iros.2018.8593419), Schubert et al., IROS 2018.
+
+- [The event-camera dataset and simulator: Event-based data for pose estimation, visual odometry, and SLAM](https://doi.org/10.1177/0278364917691115), Mueggler et al., IJRR 2017.
+
+- [The EuRoC micro aerial vehicle datasets](https://doi.org/10.1177/0278364915620033), Burri et al., IJRR 2016.
+
+- [Vision meets robotics: The KITTI dataset](https://doi.org/10.1177/0278364913491297), Geiger et al., IJRR 2013.
+
+<a id="section-5-2"></a>
+
+### 5.2 Navigation Task Datasets and Benchmarks
+
+Simulation platforms and scene resources, together with visual-goal, semantic-goal, language-guided, audio-visual, lifelong, and aerial navigation benchmarks.
+
+- [GOAT-Bench: A Benchmark for Multi-Modal Lifelong Navigation](https://doi.org/10.1109/cvpr52733.2024.01549), Khanna et al., CVPR 2024.
+
+- [HM3D-OVON: A Dataset and Benchmark for Open-Vocabulary Object Goal Navigation](https://doi.org/10.1109/iros58592.2024.10802709), Yokoyama et al., IROS 2024.
+
+- [AerialVLN: Vision-and-Language Navigation for UAVs](https://doi.org/10.1109/iccv51070.2023.01411), Liu et al., ICCV 2023.
+
+- [ProcTHOR: Large-Scale Embodied AI Using Procedural Generation](https://doi.org/10.52202/068431-0433), Deitke et al., NeurIPS 2022.
+
+- [Habitat-Matterport 3D Dataset (HM3D): 1000 Large-scale 3D Environments for Embodied AI](https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/34173cb38f07f89ddbebc2ac9128303f-Abstract-round2.html), Ramakrishnan et al., NeurIPS Datasets and Benchmarks 2021.
+
+- [Beyond the Nav-Graph: Vision-and-Language Navigation in Continuous Environments](https://doi.org/10.1007/978-3-030-58604-1_7), Krantz et al., ECCV 2020.
+
+- [REVERIE: Remote Embodied Visual Referring Expression in Real Indoor Environments](https://doi.org/10.1109/cvpr42600.2020.01000), Qi et al., CVPR 2020.
+
+- [RoboTHOR: An Open Simulation-to-Real Embodied AI Platform](https://doi.org/10.1109/cvpr42600.2020.00323), Deitke et al., CVPR 2020.
+
+- [Room-Across-Room: Multilingual Vision-and-Language Navigation with Dense Spatiotemporal Grounding](https://doi.org/10.18653/v1/2020.emnlp-main.356), Ku et al., EMNLP 2020.
+
+- [SoundSpaces: Audio-Visual Navigation in 3D Environments](https://doi.org/10.1007/978-3-030-58539-6_2), Chen et al., ECCV 2020.
+
+- [Habitat: A Platform for Embodied AI Research](https://doi.org/10.1109/iccv.2019.00943), Savva et al., ICCV 2019.
+
+- [Vision-and-Language Navigation: Interpreting Visually-Grounded Navigation Instructions in Real Environments](https://doi.org/10.1109/cvpr.2018.00387), Anderson et al., CVPR 2018.
+
+<a id="section-5-3"></a>
+
+### 5.3 Real-Robot and Cross-Platform Data
+
+Real-world robot and human navigation data, datasets spanning robot platforms, social navigation demonstrations, and off-road perception and driving data.
+
+- [ACME: A Multi-Cultural, Multi-Embodiment Social-Navigation Dataset](https://arxiv.org/abs/2607.21964), Marpally et al., arXiv 2026.
+
+- [NaviTrace: Evaluating Embodied Navigation of Vision-Language Models](https://doi.org/10.1109/icra57385.2026.11697251), Windecker et al., ICRA 2026.
+
+- [WildScenes: A benchmark for 2D and 3D semantic segmentation in large-scale natural environments](https://doi.org/10.1177/02783649241278369), Vidanapathirana et al., IJRR 2025.
+
+- [TartanDrive 2.0: More Modalities and Better Infrastructure to Further Self-Supervised Learning Research in Off-Road Driving Tasks](https://doi.org/10.1109/icra57147.2024.10611265), Sivaprakasam et al., ICRA 2024.
+
+- [GNM: A General Navigation Model to Drive Any Robot](https://doi.org/10.1109/icra48891.2023.10161227), Shah et al., ICRA 2023.
+
+- [JRDB: A Dataset and Benchmark of Egocentric Robot Visual Perception of Humans in Built Environments](https://doi.org/10.1109/tpami.2021.3070543), Martín-Martín et al., TPAMI 2023.
+
+- [Toward Human-Like Social Robot Navigation: A Large-Scale, Multi-Modal, Social Human Navigation Dataset](https://doi.org/10.1109/iros55552.2023.10342447), Nguyen et al., IROS 2023.
+
+- [Socially CompliAnt Navigation Dataset (SCAND): A Large-Scale Dataset of Demonstrations for Social Navigation](https://doi.org/10.1109/lra.2022.3184025), Karnan et al., RA-L 2022.
+
+- [RELLIS-3D Dataset: Data, Benchmarks and Analysis](https://doi.org/10.1109/icra48506.2021.9561251), Jiang et al., ICRA 2021.
+
+- [A RUGD Dataset for Autonomous Navigation and Visual Perception in Unstructured Outdoor Environments](https://doi.org/10.1109/iros40897.2019.8968283), Wigness et al., IROS 2019.
+
+<a id="section-5-4"></a>
+
+### 5.4 Evaluation Metrics and Experimental Protocols
+
+Navigation success and path efficiency, instruction fidelity, trajectory error, and evaluation protocols for social navigation and robustness.
+
+- [SocNavBench: A Grounded Simulation Testing Framework for Evaluating Social Navigation](https://doi.org/10.1145/3476413), Biswas et al., ACM THRI 2022.
+
+- [RobustNav: Towards Benchmarking Robustness in Embodied Navigation](https://doi.org/10.1109/iccv48922.2021.01540), Chattopadhyay et al., ICCV 2021.
+
+- [General Evaluation for Instruction Conditioned Navigation using Dynamic Time Warping](https://vigilworkshop.github.io/static/papers-2019/33.pdf), Ilharco et al., NeurIPS ViGIL Workshop 2019.
+
+- [Stay on the Path: Instruction Fidelity in Vision-and-Language Navigation](https://doi.org/10.18653/v1/p19-1181), Jain et al., ACL 2019.
+
+- [A Tutorial on Quantitative Trajectory Evaluation for Visual(-Inertial) Odometry](https://doi.org/10.1109/iros.2018.8593941), Zhang et al., IROS 2018.
+
+- [On Evaluation of Embodied Navigation Agents](https://arxiv.org/abs/1807.06757), Anderson et al., arXiv 2018.
+
+- [A benchmark for the evaluation of RGB-D SLAM systems](https://doi.org/10.1109/iros.2012.6385773), Sturm et al., IROS 2012.
+
+- [On measuring the accuracy of SLAM algorithms](https://doi.org/10.1007/s10514-009-9155-6), Kümmerle et al., Autonomous Robots 2009.
+
+<a id="section-5-5"></a>
+
+### 5.5 Competitions and Leaderboards
+
+Official competition and leaderboard resources for embodied navigation, aerial language-guided navigation, constrained-space navigation, SLAM, autonomous driving, and racing.
+
+- [Habitat Navigation Challenge 2023](https://aihabitat.org/challenge/2023/), Habitat Team. Archived official challenge page, 2023 edition.
+
+- [Vision and Language Navigation Leaderboard](https://eval.ai/web/challenges/challenge-page/97/overview), VLN Team. Official leaderboard.
+
+- [RxR Competition](https://ai.google.com/research/rxr/competition?active_tab=leaderboard), Google Research. Official leaderboard.
+
+- [Aerial Vision-and-Language Navigation Challenge](https://eval.ai/web/challenges/challenge-page/2049/leaderboard), UCSC ERIC Lab. Archived official leaderboard.
+
+- [The BARN Challenge 2026](https://people.cs.gmu.edu/~xiao/Research/BARN_Challenge/BARN_Challenge26.html), BARN Challenge Organizers. Official ICRA 2026 challenge and results.
+
+- [Hilti × Trimble SLAM Challenge 2026](https://hilti-trimble-challenge.com/), Hilti, Trimble, and the University of Oxford. Official 2026 challenge and evaluation portal.
+
+- [CARLA Autonomous Driving Leaderboard](https://leaderboard.carla.org/), CARLA Team. Official leaderboard and evaluation protocol.
+
+- [31st RoboRacer Autonomous Racing Competition](https://iros2026-race.roboracer.ai/), RoboRacer Organizers. Official IROS 2026 competition page.
