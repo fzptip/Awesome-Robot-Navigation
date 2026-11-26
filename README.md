@@ -833,6 +833,8 @@ Supervised learning, imitation learning, reinforcement learning, and generative 
 
 - [ViNT: A Foundation Model for Visual Navigation](https://arxiv.org/abs/2306.14846), Shah et al., CoRL 2023.
 
+- [Deep Reinforcement Learning based Robot Navigation in Dynamic Environments using Occupancy Values of Motion Primitives](https://doi.org/10.1109/iros47612.2022.9982133), Akmandor et al., IROS 2022.
+
 - [Habitat-Web: Learning Embodied Object-Search Strategies From Human Demonstrations at Scale](https://openaccess.thecvf.com/content/CVPR2022/html/Ramrakhya_Habitat-Web_Learning_Embodied_Object-Search_Strategies_From_Human_Demonstrations_at_Scale_CVPR_2022_paper.html), Ramrakhya et al., CVPR 2022.
 
 - [BADGR: An Autonomous Self-Supervised Learning-Based Navigation System](https://doi.org/10.1109/lra.2021.3057023), Kahn et al., RA-L 2021.
@@ -857,6 +859,8 @@ Supervised learning, imitation learning, reinforcement learning, and generative 
 
 - [Learning Your Way Without Map or Compass: Panoramic Target Driven Visual Navigation](https://arxiv.org/abs/1909.09295), Watkins-Valls et al., IROS 2020.
 
+- [An improved recurrent neural network for unmanned underwater vehicle online obstacle avoidance](https://doi.org/10.1016/j.oceaneng.2019.106327), Lin et al., Ocean Engineering 2019.
+
 - [Learning Exploration Policies for Navigation](https://arxiv.org/abs/1903.01959), Chen et al., ICLR 2019.
 
 - [Learning Navigation Behaviors End-to-End with AutoRL](https://doi.org/10.1109/lra.2019.2899918), Chiang et al., RA-L 2019.
@@ -868,6 +872,8 @@ Supervised learning, imitation learning, reinforcement learning, and generative 
 - [Learning to Navigate in Complex Environments](https://arxiv.org/abs/1611.03673), Mirowski et al., ICLR 2017.
 
 - [Target-driven Visual Navigation in Indoor Scenes using Deep Reinforcement Learning](https://arxiv.org/abs/1609.05143), Zhu et al., ICRA 2017.
+
+- [Virtual-to-real deep reinforcement learning: Continuous control of mobile robots for mapless navigation](https://doi.org/10.1109/iros.2017.8202134), Tai et al., IROS 2017.
 
 <a id="section-3-4"></a>
 
@@ -1175,6 +1181,8 @@ Heuristic search, sampling-based planning, trajectory optimization, predictive c
 
 - [Geometrically Constrained Trajectory Optimization for Multicopters](https://doi.org/10.1109/tro.2022.3160022), Wang et al., TRO 2022.
 
+- [Uncertain moving obstacles avoiding method in 3D arbitrary path planning for a spherical underwater robot](https://doi.org/10.1016/j.robot.2021.104011), An et al., Robotics and Autonomous Systems 2022.
+
 - [ViKiNG: Vision-Based Kilometer-Scale Navigation with Geographic Hints](https://doi.org/10.15607/rss.2022.xviii.019), Shah et al., RSS 2022.
 
 - [EGO-Planner: An ESDF-Free Gradient-Based Local Planner for Quadrotors](https://doi.org/10.1109/lra.2020.3047728), Zhou et al., RA-L 2021.
@@ -1187,6 +1195,8 @@ Heuristic search, sampling-based planning, trajectory optimization, predictive c
 
 - [RAPTOR: Robust and Perception-Aware Trajectory Replanning for Quadrotor Fast Flight](https://doi.org/10.1109/tro.2021.3071527), Zhou et al., TRO 2021.
 
+- [An obstacle avoiding method of autonomous underwater vehicle based on the reinforcement learning](https://doi.org/10.23919/ccc50068.2020.9188579), Li et al., CCC 2020.
+
 - [Batch Informed Trees (BIT*): Informed asymptotically optimal anytime search](https://doi.org/10.1177/0278364919890396), Gammell et al., IJRR 2020.
 
 - [Robust and Efficient Quadrotor Trajectory Generation for Fast Autonomous Flight](https://doi.org/10.1109/lra.2019.2927938), Zhou et al., RA-L 2019.
@@ -1196,6 +1206,8 @@ Heuristic search, sampling-based planning, trajectory optimization, predictive c
 - [Information-Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving](https://doi.org/10.1109/tro.2018.2865891), Williams et al., TRO 2018.
 
 - [PRM-RL: Long-range Robotic Navigation Tasks by Combining Reinforcement Learning and Sampling-Based Planning](https://doi.org/10.1109/icra.2018.8461096), Faust et al., ICRA 2018.
+
+- [Trajectory Tracking and Obstacle Avoidance Control of Unmanned Underwater Vehicles Based on MPC](https://doi.org/10.1109/usys.2018.8779160), Sun et al., USYS 2018.
 
 - [DESPOT: Online POMDP Planning with Regularization](https://doi.org/10.1613/jair.5328), Ye et al., JAIR 2017.
 
@@ -1284,6 +1296,8 @@ Navigation for aerial robots, including language-guided flight, visual homing, d
 - [Robust and Efficient Quadrotor Trajectory Generation for Fast Autonomous Flight](https://doi.org/10.1109/lra.2019.2927938), Zhou et al., RA-L 2019.
 
 - [DroNet: Learning to Fly by Driving](https://doi.org/10.1109/lra.2018.2795643), Loquercio et al., RA-L 2018.
+
+- [Contact-based navigation for an autonomous flying robot](https://doi.org/10.1109/iros.2013.6696926), Briod et al., IROS 2013.
 
 <a id="section-4-2"></a>
 
@@ -1381,6 +1395,10 @@ Navigation for underwater robots, including dynamics-aware policies, flow sensin
 - [Underwater Pose SLAM using GMM scan matching for a mechanical profiling sonar](https://doi.org/10.1002/rob.22272), Vial et al., Journal of Field Robotics 2024.
 
 - [CUREE: A Curious Underwater Robot for Ecosystem Exploration](https://doi.org/10.1109/icra48891.2023.10161282), Girdhar et al., ICRA 2023.
+
+- [Evaluation of Obstacle Avoidance Performance for Spherical Underwater Robots Using the Ultrasonic Sensor](https://doi.org/10.1109/icma54519.2022.9856344), Li et al., ICMA 2022.
+
+- [Study on Obstacle Avoidance Strategy Using Multiple Ultrasonic Sensors for Spherical Underwater Robots](https://doi.org/10.1109/jsen.2022.3220246), Li et al., IEEE Sensors Journal 2022.
 
 - [SVIn2: A multi-sensor fusion-based underwater SLAM system](https://doi.org/10.1177/02783649221110259), Rahman et al., IJRR 2022.
 
