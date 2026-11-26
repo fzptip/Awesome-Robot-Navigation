@@ -601,6 +601,8 @@ Pretrained language, vision-language, and vision-language-action models for goal
 
 - [ABot-N0: Technical Report on the VLA Foundation Model for Versatile Embodied Navigation](https://arxiv.org/abs/2602.11598), Chu et al., arXiv 2026.
 
+- [AquaCap: A Training-Free Underwater Embodied Agent with Code-as-Policy](https://arxiv.org/abs/2609.23133), Li et al., arXiv 2026.
+
 - [AutoFly: Vision-Language-Action Model for UAV Autonomous Navigation in the Wild](https://arxiv.org/abs/2602.09657), Sun et al., ICLR 2026.
 
 - [AwareVLN: Reasoning with Self-awareness for Vision-Language Navigation](https://openaccess.thecvf.com/content/CVPR2026/html/Guo_AwareVLN_Reasoning_with_Self-awareness_for_Vision-Language_Navigation_CVPR_2026_paper.html), Guo et al., CVPR 2026.
@@ -690,6 +692,8 @@ Action-conditioned prediction, latent dynamics, and imagined future observations
 - [Acting from Belief, Looking When Needed: A Bayesian Spatial World Model for Navigation under Intermittent Perception](https://arxiv.org/abs/2610.11591), Yang et al., arXiv 2026.
 
 - [An Efficient and Multi-Modal Navigation System with One-Step World Model](https://arxiv.org/abs/2601.12277), Shen et al., arXiv 2026.
+
+- [AquaJEPA: An Action-Conditioned Multimodal JEPA Family for Underwater Robot Dynamics](https://arxiv.org/abs/2607.29393), Gazzaev et al., arXiv 2026.
 
 - [AquaWAM: A Dynamics-aware World Action Model for Underwater Embodied Agents](https://arxiv.org/abs/2609.33299), Zhu et al., arXiv 2026.
 
@@ -1450,6 +1454,8 @@ Simulation platforms and scene resources, together with visual-goal, semantic-go
 
 - [DiffAero: A GPU-Accelerated Differentiable Simulation Framework for Efficient Quadrotor Policy Learning](https://arxiv.org/abs/2509.10247), Zhang et al., arXiv 2025.
 
+- [USIM and U0: A Vision-Language-Action Dataset and Model for General Underwater Robots](https://arxiv.org/abs/2510.07869), Gu et al., arXiv 2025.
+
 - [GOAT-Bench: A Benchmark for Multi-Modal Lifelong Navigation](https://doi.org/10.1109/cvpr52733.2024.01549), Khanna et al., CVPR 2024.
 
 - [HM3D-OVON: A Dataset and Benchmark for Open-Vocabulary Object Goal Navigation](https://doi.org/10.1109/iros58592.2024.10802709), Yokoyama et al., IROS 2024.
@@ -1481,6 +1487,8 @@ Simulation platforms and scene resources, together with visual-goal, semantic-go
 Real-world robot and human navigation data, datasets spanning robot platforms, social navigation demonstrations, and off-road perception and driving data.
 
 - [ACME: A Multi-Cultural, Multi-Embodiment Social-Navigation Dataset](https://arxiv.org/abs/2607.21964), Marpally et al., arXiv 2026.
+
+- [AQUAACT: A Joystick-Level Underwater Teleoperation Dataset and Closed-Loop Benchmark](https://arxiv.org/abs/2610.25534), Wu et al., arXiv 2026.
 
 - [NaviTrace: Evaluating Embodied Navigation of Vision-Language Models](https://doi.org/10.1109/icra57385.2026.11697251), Windecker et al., ICRA 2026.
 
