@@ -607,6 +607,8 @@ Pretrained language, vision-language, and vision-language-action models for goal
 
 - [Embodied Navigation Foundation Model](https://arxiv.org/abs/2509.12129), Zhang et al., ICLR 2026.
 
+- [GRAD-NAV++: Vision-Language Model Enabled Visual Drone Navigation With Gaussian Radiance Fields and Differentiable Dynamics](https://doi.org/10.1109/lra.2025.3643290), Chen et al., RA-L 2026.
+
 - [Ground Slow, Move Fast: A Dual-System Foundation Model for Generalizable Vision-and-Language Navigation](https://arxiv.org/abs/2512.08186), Wei et al., ICLR 2026.
 
 - [NavGPT-3: Harnessing Context in a Hierarchical Navigation Runtime](https://arxiv.org/abs/2610.10787), Zhou et al., arXiv 2026.
@@ -755,6 +757,8 @@ Action-conditioned prediction, latent dynamics, and imagined future observations
 
 - [NavMorph: A Self-Evolving World Model for Vision-and-Language Navigation in Continuous Environments](https://openaccess.thecvf.com/content/ICCV2025/html/Yao_NavMorph_A_Self-Evolving_World_Model_for_Vision-and-Language_Navigation_in_Continuous_ICCV_2025_paper.html), Yao et al., ICCV 2025.
 
+- [SkyDreamer: Interpretable End-to-End Vision-Based Drone Racing with Model-Based Reinforcement Learning](https://arxiv.org/abs/2510.14783), Verraest et al., arXiv 2025.
+
 - [WMNav: Integrating Vision-Language Models into World Models for Object Goal Navigation](https://doi.org/10.1109/iros60139.2025.11246684), Nie et al., IROS 2025.
 
 - [X-MOBILITY: End-To-End Generalizable Navigation via World Modeling](https://doi.org/10.1109/icra55743.2025.11128692), Liu et al., ICRA 2025.
@@ -769,13 +773,25 @@ Action-conditioned prediction, latent dynamics, and imagined future observations
 
 Supervised learning, imitation learning, reinforcement learning, and generative policies that map observations and goals to navigation actions or waypoints, including policy pretraining, online adaptation, and transfer across robot platforms.
 
+- [Agile in the Face of Delay: Asynchronous End-to-End Learning for Real-World Aerial Navigation](https://doi.org/10.1109/icra57385.2026.11695903), Li et al., ICRA 2026.
+
+- [Competitive Learning for Autonomous Flight](https://doi.org/10.1109/lra.2025.3641108), Huang et al., RA-L 2026.
+
+- [Flow-Aided Flight Through Dynamic Clutters From Point to Motion](https://doi.org/10.1109/lra.2025.3632608), Xu et al., RA-L 2026.
+
 - [GUIDE: A Diffusion-Based Autonomous Robot Exploration Framework Using Global Graph Inference](https://doi.org/10.1109/icra57385.2026.11696780), Che et al., ICRA 2026.
+
+- [Mastering Diverse, Unknown, and Cluttered Tracks for Robust Vision-Based Drone Racing](https://doi.org/10.1109/lra.2025.3643267), Yu et al., RA-L 2026.
 
 - [NavCMPO: Critic-Guided MeanFlow Policy Optimization for Adaptive Navigation](https://arxiv.org/abs/2607.14643), An et al., IROS 2026.
 
 - [NavDP: Learning Sim-to-Real Navigation Diffusion Policy with Privileged Information Guidance](https://doi.org/10.1109/icra57385.2026.11696748), Cai et al., ICRA 2026.
 
 - [NavOL: Navigation Policy with Online Imitation Learning](https://proceedings.mlr.press/v306/wei26f.html), Wei et al., ICML 2026.
+
+- [Oracle-Guided Masked Contrastive Reinforcement Learning for Visuomotor Policies](https://doi.org/10.1109/tpami.2026.3711921), Zhang et al., TPAMI 2026.
+
+- [Quadrotor Navigation using Reinforcement Learning with Privileged Information](https://doi.org/10.1109/icra57385.2026.11695761), Lee et al., ICRA 2026.
 
 - [Safe diffusion Q-learning: A hybrid method combining diffusion model and constrained reinforcement learning for AUV navigation](https://doi.org/10.1016/j.oceaneng.2026.124215), Liu et al., Ocean Engineering 2026.
 
@@ -871,6 +887,8 @@ Feature extraction and matching, optical flow and point tracking, depth and 3D p
 
 - [Depth Pro: Sharp Monocular Metric Depth in Less Than a Second](https://arxiv.org/abs/2410.02073), Bochkovskii et al., ICLR 2025.
 
+- [Depth Transfer: Learning to See Like a Simulator for Real-World Drone Navigation](https://doi.org/10.1109/lra.2025.3617729), Yu et al., RA-L 2025.
+
 - [VGGT: Visual Geometry Grounded Transformer](https://doi.org/10.1109/cvpr52734.2025.00499), Wang et al., CVPR 2025.
 
 - [Wild Visual Navigation: Fast Traversability Learning via Pre-Trained Models and Online Self-Supervision](https://doi.org/10.1007/s10514-025-10202-x), Mattamala et al., Autonomous Robots 2025.
@@ -933,21 +951,37 @@ Feature extraction and matching, optical flow and point tracking, depth and 3D p
 
 Visual, inertial, LiDAR, radar, and event-camera odometry, together with multi-sensor fusion, motion preintegration, invariant filtering, and state estimation for legged robots.
 
+- [A Plug-and-Play Learning-Based IMU Bias Factor for Robust Visual–Inertial Odometry](https://doi.org/10.1109/tim.2026.3676182), Yi et al., TIM 2026.
+
 - [KISS-IMU: Self-supervised Inertial Odometry with Motion-balanced Learning and Uncertainty-aware Inference](https://doi.org/10.1109/icra57385.2026.11697039), Choi et al., ICRA 2026.
 
 - [STEAM-LIVO: Spatio-Temporally Adaptive Manifold Lidar-Inertial-Visual Odometry for Sensor Degradation in Unstructured Natural Aquatic-Terrestrial Scenes](https://doi.org/10.1109/icra57385.2026.11697162), Guo et al., ICRA 2026.
+
+- [Debiasing 6-DOF IMU via Hierarchical Learning of Continuous Bias Dynamics](https://doi.org/10.15607/rss.2025.xxi.009), Liu et al., RSS 2025.
 
 - [Deep Visual Odometry for Stereo Event Cameras](https://doi.org/10.1109/lra.2025.3609095), Zhong et al., RA-L 2025.
 
 - [FAST-LIVO2: Fast, Direct LiDAR–Inertial–Visual Odometry](https://doi.org/10.1109/tro.2024.3502198), Zheng et al., TRO 2025.
 
+- [Learned IMU Bias Prediction for Invariant Visual Inertial Odometry](https://doi.org/10.1109/lra.2025.3617733), Altawaitan et al., RA-L 2025.
+
+- [Learning IMU Bias with Diffusion Model](https://doi.org/10.1109/icra55743.2025.11128152), Zhou et al., ICRA 2025.
+
 - [DBA-Fusion: Tightly Integrating Deep Dense Visual Bundle Adjustment With Multiple Sensors for Large-Scale Localization and Mapping](https://doi.org/10.1109/lra.2024.3400156), Zhou et al., RA-L 2024.
 
 - [R3LIVE++: A Robust, Real-Time, Radiance Reconstruction Package With a Tightly-Coupled LiDAR-Inertial-Visual State Estimator](https://doi.org/10.1109/tpami.2024.3456473), Lin et al., TPAMI 2024.
 
+- [VIO-DualProNet: Visual-inertial odometry with learning based process noise covariance](https://doi.org/10.1016/j.engappai.2024.108466), Solodar and Klein, Engineering Applications of Artificial Intelligence 2024.
+
+- [AirIMU: Learning Uncertainty Propagation for Inertial Odometry](https://arxiv.org/abs/2310.04874), Qiu et al., arXiv 2023.
+
+- [Deep IMU Bias Inference for Robust Visual-Inertial Odometry With Factor Graphs](https://doi.org/10.1109/lra.2022.3222956), Buchanan et al., RA-L 2023.
+
 - [Deep Patch Visual Odometry](https://doi.org/10.52202/075280-1696), Teed et al., NeurIPS 2023.
 
 - [Direct LiDAR-Inertial Odometry: Lightweight LIO with Continuous-Time Motion Correction](https://doi.org/10.1109/icra48891.2023.10160508), Chen et al., ICRA 2023.
+
+- [DUET: Improving Inertial-Based Odometry via Deep IMU Online Calibration](https://doi.org/10.1109/tim.2023.3306833), Liu et al., TIM 2023.
 
 - [DytanVO: Joint Refinement of Visual Odometry and Motion Segmentation in Dynamic Environments](https://doi.org/10.1109/icra48891.2023.10161306), Shen et al., ICRA 2023.
 
@@ -1117,9 +1151,17 @@ Heuristic search, sampling-based planning, trajectory optimization, predictive c
 
 - [Unified Generation-Refinement Planning: Bridging Guided Flow Matching and Sampling-Based MPC for Social Navigation](https://doi.org/10.1109/icra57385.2026.11696822), Mizuta et al., ICRA 2026.
 
+- [CORB-Planner: Corridor as Observations for RL Planning in High-Speed Flight](https://doi.org/10.1109/tmech.2025.3620233), Zhang et al., IEEE/ASME Transactions on Mechatronics 2025.
+
+- [Learning Safe, Optimal, and Real-Time Flight Interaction With Deep Confidence-Enhanced Reachability Guarantee](https://doi.org/10.1109/tits.2025.3616580), Zhang et al., T-ITS 2025.
+
 - [Motion Planning Diffusion: Learning and Adapting Robot Motion Planning With Diffusion Models](https://doi.org/10.1109/tro.2025.3593109), Carvalho et al., TRO 2025.
 
+- [Narrow Gap Traversing via Differentiable Physics](https://doi.org/10.1007/s12204-025-2888-3), Hu and Zou, Journal of Shanghai Jiaotong University (Science) 2025.
+
 - [Safety-assured high-speed navigation for MAVs](https://doi.org/10.1126/scirobotics.ado6187), Ren et al., Science Robotics 2025.
+
+- [Switching-Based Cooperative Avoidance Control for Multi-Agent Quadrotor Dynamic Systems in Dense Environments](https://doi.org/10.3390/app152413283), Zhang et al., Applied Sciences 2025.
 
 - [DiPPeR: Diffusion-based 2D Path Planner applied on Legged Robots](https://doi.org/10.1109/icra57147.2024.10610013), Liu et al., ICRA 2024.
 
@@ -1403,6 +1445,10 @@ Real and synthetic visual, inertial, LiDAR, radar, and event-camera datasets for
 ### 5.2 Navigation Task Datasets and Benchmarks
 
 Simulation platforms and scene resources, together with visual-goal, semantic-goal, language-guided, audio-visual, lifelong, and aerial navigation benchmarks.
+
+- [Benchmarking Interaction-Oriented Aerial Mobility across Heterogeneous Environments](https://arxiv.org/abs/2610.18381), Duan et al., arXiv 2026.
+
+- [DiffAero: A GPU-Accelerated Differentiable Simulation Framework for Efficient Quadrotor Policy Learning](https://arxiv.org/abs/2509.10247), Zhang et al., arXiv 2025.
 
 - [GOAT-Bench: A Benchmark for Multi-Modal Lifelong Navigation](https://doi.org/10.1109/cvpr52733.2024.01549), Khanna et al., CVPR 2024.
 
