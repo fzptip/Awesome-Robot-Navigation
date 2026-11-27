@@ -1,0 +1,53 @@
+# Builds the website from README.md and publishes it to GitHub Pages.
+# One-time setup: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+# On pull requests it only checks the README format, so broken entries never reach main.
+name: Website
+
+on:
+  push:
+    branches: [main]
+    paths: [README.md, site/**, scripts/**, .github/workflows/pages.yml]
+  pull_request:
+    paths: [README.md, site/**, scripts/**]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # full history, so the site can show when each paper was added
+
+      - name: Check README format
+        run: python3 scripts/build_site.py --check
+
+      - name: Build site
+        run: python3 scripts/build_site.py --quiet
+
+      - name: Upload site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
