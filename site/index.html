@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Robot Navigation</title>
+<meta name="description" content="A searchable map of the Awesome Robot Navigation paper list: navigation tasks, methods, robot platforms, datasets and benchmarks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600&display=swap">
+<style>
+/* VOICE   a calm reference for researchers, with one playful idea carried all the way through
+   IDEA    a transit network map printed on a station wall: lines, stops, interchanges
+   PICTURE the README's sections drawn as coloured lines branching from a black trunk; every topic is a stop
+   COLOUR  white ground, signage-black band, lines in vermilion, blue, teal and plum (checked for colour-blind separation)
+   TYPE    Barlow 700 for signage and titles, Barlow 400 for text, Barlow Semi Condensed 600 for stop names
+   LAYOUT  sign band (name, title, search), then the full-width map with figures at its foot; under 600px the lines stack */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#121a22);--ink:light-dark(#16181d,#e9edf2);--ink2:light-dark(#596170,#a3aebb);--rule:light-dark(#e2e5ea,#273340);--panel:light-dark(#f3f5f8,#1a2530);--sign:light-dark(#16181d,#0a1016);--g1:var(--ink);--g2:light-dark(#e4532a,#f06a45);--g3:light-dark(#2367d8,#5b8ef0);--g4:light-dark(#0b9a8a,#2ab09a);--g5:light-dark(#a8237f,#c2458f);--focus:light-dark(#2367d8,#8fb3ff)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Barlow,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow-x:clip}
+a{color:inherit;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(32px,4.4vw,50px);line-height:1.05;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:24px;line-height:1.2}
+h3{font-size:16px;line-height:1.3}
+p{margin:0}
+[hidden]{display:none!important}
+.band{padding-block:clamp(28px,4vw,56px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin-inline:auto}
+.dim{color:var(--ink2)}
+.small{font-size:14px}
+.cond{font-family:"Barlow Semi Condensed",Barlow,system-ui,sans-serif}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 16px/1 Barlow,system-ui,sans-serif;min-height:44px;padding:0 16px;border-radius:8px;border:2px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--panel)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:color-mix(in oklab,var(--ink) 85%,var(--bg))}
+input[type=search],select{font:inherit;font-size:16px;min-height:44px;border-radius:8px;border:2px solid var(--ink2);background:var(--bg);color:var(--ink);padding:0 12px}
+input[type=search]{padding:0 14px}
+.bul{display:inline-grid;place-items:center;flex:none;width:26px;height:26px;border-radius:50%;background:var(--c,var(--ink));color:var(--bg);font:700 14px/1 Barlow,system-ui,sans-serif}
+.sign{background:var(--sign);color:#fff}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 24px;padding:10px max(5vw,16px);max-width:calc(1240px + 10vw);margin-inline:auto}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none;min-height:44px}
+.brand svg{flex:none}
+.nav{display:flex;flex-wrap:wrap;gap:2px;list-style:none;margin:0;padding:0}
+.nav a{display:flex;align-items:center;min-height:44px;padding:0 12px;border-radius:6px;text-decoration:none;font-weight:600}
+.nav a:hover{background:#ffffff24}
+.nav a[aria-current=page]{background:#fff;color:#16181d}
+.hero{padding:clamp(18px,3vw,36px) max(5vw,16px) clamp(28px,4vw,44px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:20px 56px;align-items:end}
+.hero p{margin-top:14px;max-width:60ch;font-size:17px;color:#c9d0da}
+.search{display:flex;gap:8px}
+.search input{flex:1;border-color:#fff;background:#fff;color:#16181d;min-height:48px}
+.search .btn{min-height:48px;background:#fff;color:#16181d;border-color:#fff}
+.search .btn:hover{background:#dfe4ea}
+.mapband{padding-bottom:clamp(20px,3vw,36px)}
+.trunk{display:flex;flex-wrap:nowrap;align-items:flex-end;gap:10px 44px;padding-bottom:22px;border-bottom:6px solid var(--g1)}
+.tname{flex:none;display:flex;align-items:center;gap:10px;font-size:17px;font-weight:700;min-height:44px;white-space:nowrap}
+.tstop{position:relative;display:flex;align-items:baseline;gap:8px;max-width:20em;padding:8px 8px;border-radius:6px;text-decoration:none;font:600 16px/1.25 "Barlow Semi Condensed",Barlow,system-ui,sans-serif}
+.tstop::after{content:"";position:absolute;left:8px;bottom:-34px;width:18px;height:18px;border-radius:50%;background:var(--bg);border:4px solid var(--ink)}
+.tstop:hover,.stop:hover{background:var(--panel)}
+.tstop:hover .sl,.stop:hover .sl{text-decoration:underline}
+.sc{font:500 14px/1 Barlow,system-ui,sans-serif;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.lines{display:grid;grid-template-columns:repeat(var(--n,4),minmax(0,1fr));gap:0 22px}
+.line{display:flex;flex-direction:column;border-left:6px solid var(--c);padding:18px 0 0 18px}
+.line h3{display:flex;align-items:center;gap:10px;margin:0 0 8px -34px;font-size:17px}
+.line h3 .bul{box-shadow:0 0 0 3px var(--bg)}
+.stops{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:4px;list-style:none;margin:0;padding:0}
+.stop{position:relative;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 8px 9px 10px;border-radius:6px;text-decoration:none;font:600 16px/1.25 "Barlow Semi Condensed",Barlow,system-ui,sans-serif}
+.stop::before{content:"";position:absolute;left:-18px;top:16px;width:11px;height:6px;background:var(--c)}
+.stop.x::before{left:-31px;top:9px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:4px solid var(--ink)}
+.key{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:22px;font-size:14px;color:var(--ink2)}
+.key span{display:inline-flex;align-items:center;gap:8px}
+.key i{display:inline-block;flex:none}
+.key .k1{position:relative;width:6px;height:22px;margin-right:10px;background:var(--ink2)}
+.key .k1::after{content:"";position:absolute;left:6px;top:8px;width:10px;height:6px;background:var(--ink2)}
+.key .k2{width:20px;height:20px;border-radius:50%;border:4px solid var(--ink);background:var(--bg)}
+.figs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:28px;border-top:2px solid var(--ink)}
+.figs div{padding:12px 16px 0 0}
+.figs b{display:block;font-size:clamp(28px,3vw,38px);line-height:1.1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.figs span{font-size:14px;color:var(--ink2)}
+.two{border-top:1px solid var(--rule)}
+.two .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:36px 64px}
+.rlist,.ilist{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--rule)}
+.rlist li,.ilist li{padding:11px 0;border-bottom:1px solid var(--rule)}
+.rlist a,.ilist a{font-weight:600;text-decoration:none;line-height:1.3}
+.rlist a:hover,.ilist a:hover{text-decoration:underline}
+.chart{margin-top:22px}
+.yc{display:grid;grid-template-columns:repeat(var(--k),minmax(0,1fr));grid-template-rows:minmax(0,1fr);align-items:end;gap:3px;height:210px;border-bottom:1px solid var(--ink2)}
+.bar{position:relative;height:var(--h);min-height:3px;padding:0;border:0;border-radius:4px 4px 0 0;background:var(--ink);cursor:pointer}
+.bar:hover,.bar:focus-visible{background:var(--g3)}
+.bv{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font-size:13px;font-weight:600;white-space:nowrap;color:var(--ink);opacity:0;pointer-events:none}
+.bar:hover .bv,.bar:focus-visible .bv,.bar.lab .bv{opacity:1}
+.yl{display:grid;grid-template-columns:repeat(var(--k),minmax(0,1fr));gap:3px;margin-top:6px;font-size:13px;color:var(--ink2);text-align:center;font-variant-numeric:tabular-nums}
+.yl span{white-space:nowrap;overflow:visible}
+.yl span:first-child{text-align:left}
+.phead{padding-bottom:20px}
+.phead .lede{margin-top:12px;max-width:70ch;font-size:17px}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:15px}
+.strip{position:relative;overflow-x:auto;margin-top:18px;padding:16px 0 4px}
+.strip ol{display:flex;min-width:calc(var(--k,6) * 8.5em);list-style:none;margin:0;padding:0 8px 0 0;border-top:6px solid var(--c)}
+.strip li{position:relative;flex:1 1 0;padding:16px 22px 0 0}
+.strip li::before{content:"";position:absolute;top:-14px;left:0;width:16px;height:16px;border-radius:50%;background:var(--bg);border:4px solid var(--c)}
+.strip li.here::before{width:24px;height:24px;top:-18px;left:-4px;background:var(--c);border-color:var(--ink)}
+.strip a{display:block;max-width:11em;font:600 15px/1.2 "Barlow Semi Condensed",Barlow,system-ui,sans-serif;color:var(--ink2);text-decoration:none}
+.strip a:hover{color:var(--ink);text-decoration:underline}
+.strip li.here a{color:var(--ink)}
+.conn{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px;font-size:15px}
+.explorer{padding-top:8px}
+.explorer .wrap{display:grid;grid-template-columns:270px minmax(0,1fr);gap:44px;align-items:start}
+.filters{position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto;padding:0 6px 12px 0;overscroll-behavior:contain}
+.fg{border-top:1px solid var(--rule);padding:12px 0}
+.fg:first-child{border-top:0;padding-top:0}
+.fg h3{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.fg h3 .bul{width:22px;height:22px;font-size:12px}
+.opt{display:flex;align-items:center;gap:10px;min-height:36px;padding:3px 0;cursor:pointer;font-size:15px;line-height:1.25}
+.opt input{flex:none;width:18px;height:18px;margin:0;accent-color:var(--c,var(--ink))}
+.opt .n{margin-left:auto;font-size:13px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.opt.zero{color:var(--ink2)}
+.yr{display:flex;align-items:center;gap:8px;margin-top:6px}
+.yr select{flex:1;padding:0 8px}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.quick button,.pill{font:500 14px/1 Barlow,system-ui,sans-serif;min-height:32px;padding:0 10px;border-radius:16px;border:1px solid var(--ink2);background:var(--bg);color:var(--ink);cursor:pointer}
+.quick button:hover,.pill:hover{background:var(--panel)}
+details.more summary{cursor:pointer;min-height:36px;display:flex;align-items:center;font-size:15px;font-weight:600}
+.rtools{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.rtools input{flex:1 1 260px}
+.ftoggle{display:none}
+.active{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;min-height:8px}
+.pill{display:inline-flex;align-items:center;gap:6px}
+.pill b{font-weight:500;color:var(--ink2)}
+.count{margin-top:12px;font-size:14px;color:var(--ink2)}
+.yh{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:baseline;padding:18px 0 6px;background:var(--bg);border-bottom:2px solid var(--ink)}
+.yh h2{font-variant-numeric:tabular-nums}
+.yh span{font-size:14px;color:var(--ink2)}
+.plist{list-style:none;margin:0;padding:0}
+.paper{padding:14px 0 15px;border-bottom:1px solid var(--rule)}
+.paper .t{font-size:17px;font-weight:600;line-height:1.3;text-decoration:none}
+.paper .t:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:5px;font-size:15px;color:var(--ink2)}
+.vn{font:600 14px/1.2 "Barlow Semi Condensed",Barlow,system-ui,sans-serif;color:var(--ink);border:1px solid var(--ink2);border-radius:4px;padding:2px 6px}
+.new{font:600 14px/1 "Barlow Semi Condensed",Barlow,system-ui,sans-serif;color:var(--ink);background:color-mix(in oklab,var(--g4) 22%,var(--bg));border-radius:4px;padding:5px 7px;white-space:nowrap}
+.tags{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:9px}
+.chip{display:inline-flex;align-items:center;gap:7px;min-height:30px;padding:3px 11px 3px 3px;border-radius:16px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);font:500 14px/1.15 "Barlow Semi Condensed",Barlow,system-ui,sans-serif;text-align:left;cursor:pointer;text-decoration:none}
+.chip .bul{width:22px;height:22px;font-size:12px}
+.chip:hover{border-color:var(--ink2)}
+.chip[aria-pressed=true]{border-color:var(--c);background:color-mix(in oklab,var(--c) 14%,var(--bg))}
+.links{display:inline-flex;flex-wrap:wrap;gap:2px;margin-left:4px}
+.src{font-size:14px;font-weight:600;color:var(--ink2);text-decoration:none;padding:5px 7px;border-radius:4px}
+.src:hover{color:var(--ink);background:var(--panel);text-decoration:underline}
+mark{background:color-mix(in oklab,var(--g2) 28%,transparent);color:inherit;border-radius:2px}
+.empty{padding:28px 0;font-size:17px}
+.morebox{padding:20px 0}
+.learn .wrap,.contrib .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px 64px;align-items:start}
+.lhead{grid-column:1/-1}
+.lhead p{margin-top:12px;max-width:62ch;font-size:17px}
+.kind{margin-top:24px}
+.kind:first-of-type{margin-top:14px}
+.col h2+.ilist{margin-top:14px}
+.col h2:not(:first-child){margin-top:36px}
+.steps{list-style:none;counter-reset:s;margin:16px 0 0;padding:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 18px 46px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:var(--bg);font-weight:700}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:13px;top:30px;bottom:2px;width:4px;background:var(--ink)}
+.steps b{display:block;font-size:17px}
+.code{margin-top:12px;border-radius:8px;background:var(--panel)}
+.codebar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 8px 0 16px;font-size:14px;color:var(--ink2)}
+.codebar .btn{min-height:34px;padding:0 12px;font-size:14px;border-width:1px}
+pre{margin:0;padding:10px 16px 14px;overflow-x:auto;font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.venues{margin-top:8px}
+.vbars{display:grid;gap:2px;margin-top:16px}
+.vrow{display:grid;grid-template-columns:minmax(4.5em,auto) minmax(0,1fr) 2.5em;align-items:center;gap:12px;min-height:36px;padding:0 6px;border:0;border-radius:6px;background:none;color:var(--ink);font:500 15px/1.2 Barlow,system-ui,sans-serif;text-align:left;cursor:pointer}
+.vrow:hover,.vrow:focus-visible{background:var(--panel)}
+.vtrack{height:14px}
+.vfill{display:block;height:100%;min-width:3px;border-radius:0 4px 4px 0;background:var(--ink)}
+.vrow:hover .vfill{background:var(--g3)}
+.vnum{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink2);font-size:14px}
+.foot{border-top:1px solid var(--rule);font-size:14px;color:var(--ink2)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 32px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:900px){.hero .wrap,.contrib .wrap{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:1000px){.figs{grid-template-columns:repeat(2,minmax(0,1fr))}.lines{grid-template-columns:repeat(2,minmax(0,1fr))}.lines .line:nth-child(n+3){margin-top:30px}.explorer .wrap{grid-template-columns:minmax(0,1fr);gap:16px}.filters{position:static;max-height:none;display:none;border:1px solid var(--rule);border-radius:10px;padding:14px 16px}.filters.open{display:block}.ftoggle{display:inline-flex}}
+@media(max-width:600px){.two .wrap,.learn .wrap,.contrib .wrap{grid-template-columns:minmax(0,1fr)}.lines{grid-template-columns:minmax(0,1fr)}.lines .line+.line{margin-top:30px}.trunk{flex-wrap:wrap;gap:4px 20px}.tname{flex-basis:100%}.tstop{flex:1 1 0}.yc{height:170px}.top{padding-block:4px;gap:0}.nav{flex-wrap:nowrap;overflow-x:auto;width:100%;scrollbar-width:none}.nav a{padding:0 8px;white-space:nowrap}.nav li:last-child{display:none}}
+@media(prefers-reduced-motion:no-preference){.stop,.tstop,.chip,.bar{transition:background-color .15s,border-color .15s}}
+</style>
+</head>
+<body>
+<header class="sign">
+  <div class="top">
+    <a class="brand" href="#map" aria-label="Awesome Robot Navigation, map">
+      <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path d="M4 26V12a8 8 0 0 1 8-8h14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/><circle cx="4" cy="26" r="3.5" fill="#fff"/><circle cx="17" cy="4" r="4.5" fill="#16181d" stroke="#fff" stroke-width="3"/></svg>
+      <span>Awesome Robot Navigation</span>
+    </a>
+    <ul class="nav">
+      <li><a href="#map" data-v="map">Map</a></li>
+      <li><a href="#papers" data-v="papers">Papers</a></li>
+      <li><a href="#datasets" data-v="datasets">Datasets</a></li>
+      <li><a href="#learn" data-v="learn">Learn</a></li>
+      <li><a href="#contribute" data-v="contribute">Contribute</a></li>
+      <li><a href="https://github.com/" id="gh" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+  <div class="hero" id="hero">
+    <div class="wrap">
+      <div>
+        <h1 tabindex="-1">Robot navigation research, mapped by task, method, platform and data</h1>
+        <p id="lede">Every paper from the Awesome Robot Navigation list, drawn as a transit map: each line is one part of the list and each stop is a topic. Pick a stop to see its papers.</p>
+      </div>
+      <form class="search" id="heroSearch" role="search">
+        <label class="sr" for="hq">Search papers</label>
+        <input type="search" id="hq" placeholder="Search titles, authors, venues" autocomplete="off">
+        <button class="btn" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="view" id="v-map" aria-label="Map">
+    <div class="band mapband">
+      <div class="wrap">
+        <div class="trunk" id="trunk"></div>
+        <div class="lines" id="lines"></div>
+        <div class="key"><span><i class="k1"></i>Topic</span><span><i class="k2"></i>Interchange: shares five or more papers with topics on another line</span></div>
+        <div class="figs" id="figs"></div>
+      </div>
+    </div>
+    <div class="band two">
+      <div class="wrap">
+        <div id="recent"></div>
+        <div>
+          <h2 id="yTitle">Papers per year</h2>
+          <p class="small dim" id="ySub">Select a year to see its papers.</p>
+          <div class="chart" id="years"></div>
+          <h2 id="vTitle" style="margin-top:44px">Venues</h2>
+          <p class="small dim">Select a venue to see its papers.</p>
+          <div class="vbars" id="vbars"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view" id="v-papers" aria-label="Papers" hidden>
+    <div class="band phead"><div class="wrap" id="phead"></div></div>
+    <div class="band explorer">
+      <div class="wrap">
+        <aside class="filters" id="filters" aria-label="Filters"></aside>
+        <div>
+          <div class="rtools">
+            <label class="sr" for="q">Search papers</label>
+            <input type="search" id="q" placeholder="Search titles, authors, venues" autocomplete="off">
+            <label class="sr" for="sort">Sort</label>
+            <select id="sort">
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="added">Recently added</option>
+              <option value="title">Title A to Z</option>
+              <option value="cross">Most cross-listed</option>
+            </select>
+            <button class="btn ftoggle" type="button" id="ftoggle" aria-controls="filters" aria-expanded="false">Filters</button>
+          </div>
+          <div class="active" id="active"></div>
+          <p class="count" id="count" aria-live="polite"></p>
+          <div id="results"></div>
+          <div class="morebox"><button class="btn" type="button" id="more" hidden>Show more</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view learn" id="v-learn" aria-label="Learn" hidden>
+    <div class="band">
+      <div class="wrap">
+        <div class="lhead">
+          <h1 tabindex="-1">Start here</h1>
+          <p>Surveys to get oriented, then the textbooks, courses and software docs most of these papers build on, and the competitions where methods are compared.</p>
+        </div>
+        <div class="col" id="learnL"></div>
+        <div class="col" id="learnR"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="view contrib" id="v-contribute" aria-label="Contribute" hidden>
+    <div class="band">
+      <div class="wrap">
+        <div class="lhead">
+          <h1 tabindex="-1">Add a paper</h1>
+          <p>This site is built from the repository's README, so every change goes through GitHub. Once it is merged, the site updates within a few minutes.</p>
+        </div>
+        <div class="col">
+          <ol class="steps">
+            <li><b>Check it is not listed yet</b>Search on the Papers page by title or first author.</li>
+            <li><b>Suggest it, or edit the README</b>Open an issue with the paper form, or add it to README.md in a pull request.</li>
+            <li><b>Write one line in the house format</b>Official version first; link to the DOI or proceedings page when there is one, arXiv otherwise.</li>
+            <li><b>List it in every section it belongs to</b>A VLA model for drones belongs under Foundation Model-Based Navigation and Unmanned Aerial Vehicles. Write it identically each time.</li>
+            <li><b>Keep the order</b>Newest year first, then titles A to Z within a year.</li>
+          </ol>
+          <p style="margin-top:6px"><a class="btn solid" id="issueLink" href="https://github.com/" rel="noopener">Suggest a paper on GitHub</a></p>
+        </div>
+        <div class="col">
+          <h2>Entry format</h2>
+          <div class="code"><div class="codebar"><span>README.md</span><button class="btn" type="button" data-copy="fmt">Copy</button></div><pre id="fmt">- [Title of the Paper](https://doi.org/...), Surname et al., Venue Year.</pre></div>
+          <h2 style="margin-top:32px">Venue names</h2>
+          <p style="margin-top:8px">Use the short forms already in the list:</p>
+          <p class="venues" id="venueList"></p>
+          <h2 style="margin-top:32px">Preview the site</h2>
+          <div class="code"><div class="codebar"><span>Terminal</span><button class="btn" type="button" data-copy="build">Copy</button></div><pre id="build">python3 scripts/build_site.py --check
+python3 scripts/build_site.py --inline
+open _site/index.html</pre></div>
+          <h2 style="margin-top:32px">Cite this list</h2>
+          <div class="code"><div class="codebar"><span>BibTeX</span><button class="btn" type="button" data-copy="bib">Copy</button></div><pre id="bib"></pre></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="band foot">
+  <div class="wrap"><p id="built">Built from README.md.</p><p><a id="repoLink" href="https://github.com/">Edit the list on GitHub</a></p></div>
+</footer>
+
+<script>
+{
+const EMBED = /*__DATA__*/null;
+// Short names and route letters for the README's top-level sections, keyed by section number.
+const LINES = {"1": ["S", "Start here"], "2": ["T", "Tasks"], "3": ["M", "Methods"], "4": ["P", "Platforms"], "5": ["D", "Data"]};
+const CITE_AUTHOR = "Fei, Zhipeng and contributors";
+const PAGE = 80;
+const VIEWS = ["map", "papers", "learn", "contribute"];
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"})[c]);
+const norm = s => String(s ?? "").normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[‐-―−]/g, "-").toLowerCase();
+const cap = s => String(s).split(" ").map((w, i) => /^[A-Z0-9][A-Z0-9-]+$/.test(w) ? w : i === 0 ? w.charAt(0) + w.slice(1).toLowerCase() : w.toLowerCase()).join(" ");
+const day = d => d ? new Date(d + "T00:00:00Z").toLocaleDateString("en-GB", {day: "numeric", month: "short", year: "numeric", timeZone: "UTC"}) : "";
+const num = n => Number(n).toLocaleString("en");
+const plural = (n, w) => `${num(n)} ${w}${n === 1 ? "" : "s"}`;
+let D = null;
+const F = {q: "", tokens: [], topics: new Set(), y0: 0, y1: 9999, venues: new Set(), status: "all", sort: "newest", limit: PAGE};
+
+const short = gid => LINES[gid] || [String(D.grp[gid]?.title || "?")[0], D.grp[gid]?.title || ""];
+const color = gid => `var(--g${esc(gid)},var(--ink))`;
+const bul = gid => `<span class="bul" style="--c:${color(gid)}" aria-hidden="true">${esc(short(gid)[0])}</span>`;
+const paperSecs = g => g.sections.filter(id => D.sec[id]?.kind === "papers");
+
+function prepare(rows) {
+  D = {meta: {}, groups: [], sections: [], papers: [], resources: []};
+  const bucket = {group: "groups", section: "sections", paper: "papers", resource: "resources"};
+  for (const r of rows) r.type === "meta" ? (D.meta = r) : bucket[r.type] && D[bucket[r.type]].push(r);
+  D.sec = Object.fromEntries(D.sections.map(s => [s.id, s]));
+  D.grp = Object.fromEntries(D.groups.map(g => [g.id, g]));
+  D.shared = {};
+  D.pairs = {};
+  for (const p of D.papers) {
+    p.key = norm(p.title);
+    p.pre = p.venue === "arXiv";
+    p.hay = norm([p.title, p.authors, p.venue, p.year, ...p.sections.map(id => D.sec[id]?.title)].join(" "));
+    for (const a of p.sections) {
+      if (p.sections.some(b => D.sec[b].group !== D.sec[a].group)) D.shared[a] = (D.shared[a] || 0) + 1;
+      for (const b of p.sections) if (a !== b) (D.pairs[a] ??= {})[b] = (D.pairs[a][b] || 0) + 1;
+    }
+  }
+  const ys = D.papers.map(p => p.year);
+  D.y0 = Math.min(...ys);
+  D.y1 = Math.max(...ys);
+  D.latest = D.papers.reduce((m, p) => p.added && p.added > m ? p.added : m, "");
+  const vc = {};
+  for (const p of D.papers) vc[p.venue] = (vc[p.venue] || 0) + 1;
+  D.venues = Object.entries(vc).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([v]) => v);
+  D.repo = D.meta.repo ? `https://github.com/${D.meta.repo}` : "";
+  F.y0 = D.y0;
+  F.y1 = D.y1;
+}
+
+/* ---------- map ---------- */
+function connections(id, n) {
+  return Object.entries(D.pairs[id] || {}).sort((a, b) => b[1] - a[1]).slice(0, n);
+}
+function stopTitle(s) {
+  const c = connections(s.id, 3);
+  return c.length ? `Shares papers with ${c.map(([b, k]) => `${cap(D.sec[b].title)} (${k})`).join(", ")}` : "";
+}
+function renderMap() {
+  const [trunk, ...branches] = D.groups;
+  $("#trunk").innerHTML = `<span class="tname">${bul(trunk.id)}${esc(short(trunk.id)[1])}</span>` + trunk.sections.map(id => {
+    const s = D.sec[id];
+    return `<a class="tstop" href="#${esc(s.slug)}"><span class="sl">${esc(cap(s.title))}</span><span class="sc">${s.count}</span></a>`;
+  }).join("");
+  $("#lines").style.setProperty("--n", branches.length);
+  $("#lines").innerHTML = branches.map(g => `<div class="line" style="--c:${color(g.id)}"><h3>${bul(g.id)}<span>${esc(cap(g.title))}</span></h3><ol class="stops">${g.sections.map(id => {
+    const s = D.sec[id];
+    const x = (D.shared[id] || 0) >= 5 ? " x" : "";
+    return `<li><a class="stop${x}" href="#${esc(s.slug)}" title="${esc(stopTitle(s))}"><span class="sl">${esc(cap(s.title))}</span><span class="sc">${s.count}</span></a></li>`;
+  }).join("")}</ol></div>`).join("");
+  const topics = D.sections.filter(s => s.kind === "papers").length;
+  const cross = D.papers.filter(p => p.sections.length > 1).length;
+  const figs = [[num(D.papers.length), "unique papers"], [topics, "topics"], [D.venues.length, "venues"], [num(cross), "listed under several topics"]];
+  $("#figs").innerHTML = figs.filter(f => f[0] !== "").map(([b, s]) => `<div><b>${esc(b)}</b><span>${esc(s)}</span></div>`).join("");
+  renderRecent();
+  renderYears();
+  renderVenues();
+}
+function renderRecent() {
+  const box = $("#recent");
+  if (!D.latest) { box.hidden = true; return; }
+  const list = D.papers.filter(p => p.added === D.latest).sort((a, b) => b.year - a.year || a.key.localeCompare(b.key));
+  box.innerHTML = `<h2>${esc(plural(list.length, "paper"))} added on ${esc(day(D.latest))}</h2><p class="small dim">The newest additions to the README.</p><ul class="rlist">${list.slice(0, 6).map(p => `<li><a href="${esc(p.links[0].url)}" target="_blank" rel="noopener">${esc(p.title)}</a><div class="meta"><span>${esc(p.authors)}</span><span class="vn">${esc(p.venue)}&nbsp;${p.year}</span></div></li>`).join("")}</ul><p style="margin-top:16px"><button class="btn" type="button" id="seeRecent">See all ${list.length}</button></p>`;
+  $("#seeRecent").onclick = () => { reset(); F.sort = "added"; $("#sort").value = "added"; go("papers"); };
+}
+function renderVenues() {
+  const top = D.venues.slice(0, 8).map(v => [v, D.papers.filter(p => p.venue === v).length]);
+  const max = top[0][1];
+  const share = Math.round(top.slice(0, 3).reduce((a, [, n]) => a + n, 0) / D.papers.length * 100);
+  $("#vTitle").textContent = `${top.slice(0, 3).map(([v]) => v).join(", ").replace(/, ([^,]*)$/, " and $1")} account for ${share}% of the papers`;
+  $("#vbars").innerHTML = top.map(([v, n]) => `<button type="button" class="vrow" data-venue="${esc(v)}" aria-label="${esc(v)}: ${esc(plural(n, "paper"))}"><span>${esc(v)}</span><span class="vtrack"><span class="vfill" style="width:${(n / max * 100).toFixed(1)}%"></span></span><span class="vnum">${n}</span></button>`).join("");
+  $("#vbars").onclick = e => {
+    const b = e.target.closest(".vrow");
+    if (!b) return;
+    reset();
+    F.venues.add(b.dataset.venue);
+    go("papers");
+  };
+}
+function renderYears() {
+  const start = Math.max(D.y0, 2010);
+  const bins = [];
+  if (D.y0 < start) bins.push({label: `Before ${start}`, short: "Older", y0: D.y0, y1: start - 1});
+  for (let y = start; y <= D.y1; y++) bins.push({label: String(y), short: `'${String(y).slice(2)}`, y0: y, y1: y});
+  for (const b of bins) b.n = D.papers.filter(p => p.year >= b.y0 && p.year <= b.y1).length;
+  const max = Math.max(...bins.map(b => b.n));
+  let cut = D.y1, acc = 0;
+  for (let y = D.y1; y >= D.y0; y--) { acc += D.papers.filter(p => p.year === y).length; if (acc * 2 > D.papers.length) { cut = y; break; } }
+  $("#yTitle").textContent = `More than half of the papers are from ${cut} or later`;
+  const wide = $("#years").clientWidth > 520;
+  const box = $("#years");
+  box.innerHTML = `<div class="yc" style="--k:${bins.length}">${bins.map((b, i) => `<button type="button" class="bar${i === bins.length - 1 ? " lab" : ""}" style="--h:${(b.n / max * 100).toFixed(1)}%" data-y0="${b.y0}" data-y1="${b.y1}" aria-label="${esc(b.label)}: ${esc(plural(b.n, "paper"))}"><span class="bv">${b.n}</span></button>`).join("")}</div><div class="yl" style="--k:${bins.length}" aria-hidden="true">${bins.map((b, i) => `<span>${(bins.length - 1 - i) % 2 === 0 && !(i === 1 && D.y0 < start) || i === 0 ? esc(wide ? b.label : b.short) : ""}</span>`).join("")}</div>`;
+  box.onclick = e => {
+    const b = e.target.closest(".bar");
+    if (!b) return;
+    reset();
+    F.y0 = +b.dataset.y0;
+    F.y1 = +b.dataset.y1;
+    go("papers");
+  };
+}
+
+/* ---------- papers ---------- */
+function selected(gid) { return D.grp[gid].sections.filter(id => F.topics.has(id)); }
+function pass(p, skip, sel) {
+  if (F.tokens.length && !F.tokens.every(t => p.hay.includes(t))) return false;
+  if (skip !== "year" && (p.year < F.y0 || p.year > F.y1)) return false;
+  if (skip !== "venue" && F.venues.size && !F.venues.has(p.venue)) return false;
+  if (skip !== "status" && F.status !== "all" && (F.status === "pre") !== p.pre) return false;
+  for (const [gid, ids] of sel) if (gid !== skip && !p.sections.some(id => ids.includes(id))) return false;
+  return true;
+}
+function buildFilters() {
+  const groups = D.groups.filter(g => paperSecs(g).length);
+  const top = D.venues.slice(0, 8), rest = D.venues.slice(8);
+  const vopt = v => `<label class="opt"><input type="checkbox" name="venue" value="${esc(v)}"><span>${esc(v)}</span><span class="n" data-v="${esc(v)}"></span></label>`;
+  const years = [];
+  for (let y = D.y1; y >= D.y0; y--) years.push(y);
+  const yo = sel => years.map(y => `<option value="${y}"${y === sel ? " selected" : ""}>${y}</option>`).join("");
+  $("#filters").innerHTML = groups.map(g => `<div class="fg" style="--c:${color(g.id)}"><h3>${bul(g.id)}${esc(short(g.id)[1])}</h3>${paperSecs(g).map(id => `<label class="opt"><input type="checkbox" name="topic" value="${esc(id)}"><span>${esc(cap(D.sec[id].title))}</span><span class="n" data-t="${esc(id)}"></span></label>`).join("")}</div>`).join("")
+    + `<div class="fg"><h3>Year</h3><div class="yr"><label class="sr" for="y0">From</label><select id="y0">${yo(D.y0)}</select><span class="dim">to</span><label class="sr" for="y1">To</label><select id="y1">${yo(D.y1)}</select></div><div class="quick"><button type="button" data-since="${D.y1 - 2}">Since ${D.y1 - 2}</button><button type="button" data-since="${D.y1 - 5}">Since ${D.y1 - 5}</button><button type="button" data-since="${D.y0}">All years</button></div></div>`
+    + `<div class="fg"><h3>Venue</h3>${top.map(vopt).join("")}${rest.length ? `<details class="more"><summary>${rest.length} more venues</summary>${rest.map(vopt).join("")}</details>` : ""}</div>`
+    + `<div class="fg"><h3>Status</h3>${[["all", "All papers"], ["pub", "Published"], ["pre", "Preprints (arXiv)"]].map(([v, l]) => `<label class="opt"><input type="radio" name="status" value="${v}"${v === "all" ? " checked" : ""}><span>${l}</span><span class="n" data-s="${v}"></span></label>`).join("")}</div>`
+    + `<div class="fg"><button class="btn" type="button" data-act="clear">Clear filters</button></div>`;
+}
+function syncFilters(sel) {
+  const tc = {}, vc = {}, sc = {all: 0, pub: 0, pre: 0};
+  for (const g of D.groups) for (const p of D.papers) if (pass(p, g.id, sel)) for (const id of p.sections) if (D.sec[id].group === g.id) tc[id] = (tc[id] || 0) + 1;
+  for (const p of D.papers) {
+    if (pass(p, "venue", sel)) vc[p.venue] = (vc[p.venue] || 0) + 1;
+    if (pass(p, "status", sel)) { sc.all++; sc[p.pre ? "pre" : "pub"]++; }
+  }
+  for (const el of $$("#filters .n")) {
+    const n = el.dataset.t ? tc[el.dataset.t] : el.dataset.v ? vc[el.dataset.v] : sc[el.dataset.s];
+    el.textContent = n || 0;
+    el.parentElement.classList.toggle("zero", !n);
+  }
+  for (const i of $$('#filters input[name=topic]')) i.checked = F.topics.has(i.value);
+  for (const i of $$('#filters input[name=venue]')) i.checked = F.venues.has(i.value);
+  for (const i of $$('#filters input[name=status]')) i.checked = i.value === F.status;
+  $("#y0").value = F.y0;
+  $("#y1").value = F.y1;
+  const nAct = F.topics.size + F.venues.size + (F.status !== "all") + (F.y0 !== D.y0 || F.y1 !== D.y1);
+  $("#ftoggle").textContent = nAct ? `Filters (${nAct})` : "Filters";
+}
+function renderHead() {
+  const only = F.topics.size === 1 && plain();
+  const box = $("#phead");
+  const whole = wholeGroup();
+  if (whole) {
+    box.innerHTML = `<h1 tabindex="-1">${esc(cap(whole.title))}</h1><p class="lede dim">${esc(plural(paperSecs(whole).length, "topic"))} on the ${esc(short(whole.id)[1])} line. Pick a stop to narrow it down.</p>`
+      + `<nav class="strip" aria-label="${esc(short(whole.id)[1])} line" style="--c:${color(whole.id)}"><ol style="--k:${whole.sections.length}">${whole.sections.map(id => `<li><a href="#${esc(D.sec[id].slug)}">${esc(cap(D.sec[id].title))}</a></li>`).join("")}</ol></nav>`;
+    return;
+  }
+  if (!only) {
+    const n = F.topics.size;
+    box.innerHTML = `<h1 tabindex="-1">${n ? esc(plural(n, "topic")) + " selected" : "All papers"}</h1><p class="lede dim">Search and filter ${esc(plural(D.papers.length, "paper"))}. Topics on the same line widen the results; topics on different lines narrow them, so Semantic Goal Navigation plus Foundation Model-Based Navigation finds the papers listed under both.</p>`;
+    return;
+  }
+  const s = D.sec[[...F.topics][0]], g = D.grp[s.group];
+  const conn = connections(s.id, 4);
+  const readme = D.repo && s.anchor ? `<a href="${esc(D.repo)}#${esc(s.anchor)}" rel="noopener">Open this section in the README</a>` : "";
+  box.innerHTML = `<h1 tabindex="-1">${esc(cap(s.title))}</h1><p class="lede">${esc(s.description)}</p>`
+    + `<nav class="strip" aria-label="${esc(short(g.id)[1])} line" style="--c:${color(g.id)}"><ol style="--k:${g.sections.length}">${g.sections.map(id => `<li class="${id === s.id ? "here" : ""}"><a href="#${esc(D.sec[id].slug)}"${id === s.id ? ' aria-current="page"' : ""}>${esc(cap(D.sec[id].title))}</a></li>`).join("")}</ol></nav>`
+    + (conn.length ? `<div class="conn"><span class="dim">Shares papers with</span>${conn.map(([b, k]) => `<a class="chip" href="#${esc(D.sec[b].slug)}" style="--c:${color(D.sec[b].group)}">${bul(D.sec[b].group)}${esc(cap(D.sec[b].title))} (${k})</a>`).join("")}</div>` : "")
+    + (readme ? `<div class="crumbs">${readme}</div>` : "");
+  const here = $(".strip li.here", box), strip = $(".strip", box);
+  if (here && strip.scrollWidth > strip.clientWidth) strip.scrollLeft = Math.max(0, here.offsetLeft - (strip.clientWidth - here.offsetWidth) / 2);
+}
+function highlight(t) {
+  if (!F.tokens.length) return esc(t);
+  const rx = new RegExp("(" + F.tokens.map(x => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi");
+  return String(t).split(rx).map((part, i) => i % 2 ? `<mark>${esc(part)}</mark>` : esc(part)).join("");
+}
+function card(p) {
+  const chips = p.sections.map(id => {
+    const s = D.sec[id];
+    return `<button type="button" class="chip" data-t="${esc(id)}" aria-pressed="${F.topics.has(id)}" style="--c:${color(s.group)}" title="${F.topics.has(id) ? "Remove" : "Add"} this topic filter">${bul(s.group)}${esc(cap(s.title))}</button>`;
+  }).join("");
+  const links = p.links.map(l => `<a class="src" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.type)}</a>`).join("");
+  const isNew = D.latest && p.added === D.latest;
+  return `<li class="paper"><a class="t" href="${esc(p.links[0].url)}" target="_blank" rel="noopener">${highlight(p.title)}</a>`
+    + `<div class="meta"><span>${highlight(p.authors)}</span><span class="vn">${esc(p.venue)}&nbsp;${p.year}</span>${isNew ? `<span class="new">Added ${esc(day(p.added))}</span>` : ""}</div>`
+    + `<div class="tags">${chips}<span class="links">${links}</span></div></li>`;
+}
+const SORTS = {
+  newest: (a, b) => b.year - a.year || a.key.localeCompare(b.key),
+  oldest: (a, b) => a.year - b.year || a.key.localeCompare(b.key),
+  added: (a, b) => (b.added || "").localeCompare(a.added || "") || b.year - a.year || a.key.localeCompare(b.key),
+  title: (a, b) => a.key.localeCompare(b.key),
+  cross: (a, b) => b.sections.length - a.sections.length || b.year - a.year || a.key.localeCompare(b.key),
+};
+function renderResults(sel) {
+  const list = D.papers.filter(p => pass(p, null, sel)).sort(SORTS[F.sort]);
+  const shown = list.slice(0, F.limit);
+  $("#count").textContent = list.length === D.papers.length ? `${plural(list.length, "paper")}` : `${num(list.length)} of ${plural(D.papers.length, "paper")}`;
+  $("#more").hidden = list.length <= F.limit;
+  $("#more").textContent = `Show ${Math.min(PAGE, list.length - F.limit)} more`;
+  if (!list.length) {
+    $("#results").innerHTML = `<p class="empty">No papers match these filters. <button class="btn" type="button" data-act="clear">Clear filters</button></p>`;
+    return;
+  }
+  const keyOf = F.sort === "newest" || F.sort === "oldest" ? p => String(p.year) : F.sort === "added" ? p => p.added ? `Added ${day(p.added)}` : "Date unknown" : null;
+  if (!keyOf) { $("#results").innerHTML = `<ul class="plist">${shown.map(card).join("")}</ul>`; return; }
+  const totals = {};
+  for (const p of list) totals[keyOf(p)] = (totals[keyOf(p)] || 0) + 1;
+  let html = "", cur = null;
+  for (const p of shown) {
+    const k = keyOf(p);
+    if (k !== cur) { html += `${cur === null ? "" : "</ul>"}<div class="yh"><h2>${esc(k)}</h2><span>${esc(plural(totals[k], "paper"))}</span></div><ul class="plist">`; cur = k; }
+    html += card(p);
+  }
+  $("#results").innerHTML = html + "</ul>";
+}
+function renderActive() {
+  const pills = [];
+  if (F.q) pills.push(["q", "", `“${F.q}”`]);
+  for (const id of F.topics) pills.push(["t", id, cap(D.sec[id].title)]);
+  if (F.y0 !== D.y0 || F.y1 !== D.y1) pills.push(["y", "", F.y0 === F.y1 ? String(F.y0) : `${F.y0} to ${F.y1}`]);
+  for (const v of F.venues) pills.push(["v", v, v]);
+  if (F.status !== "all") pills.push(["s", "", F.status === "pre" ? "Preprints" : "Published"]);
+  $("#active").innerHTML = pills.map(([k, v, l]) => `<button type="button" class="pill" data-rm="${k}" data-val="${esc(v)}" aria-label="Remove filter ${esc(l)}">${esc(l)}<b aria-hidden="true">×</b></button>`).join("")
+    + (pills.length > 1 ? `<button type="button" class="pill" data-act="clear">Clear all</button>` : "");
+}
+function plain() { return !F.q && !F.venues.size && F.status === "all" && F.y0 === D.y0 && F.y1 === D.y1; }
+function wholeGroup() {
+  if (!plain() || F.topics.size < 2) return null;
+  return D.groups.find(g => paperSecs(g).length === F.topics.size && paperSecs(g).every(id => F.topics.has(id))) || null;
+}
+function routeName() {
+  if (plain() && F.topics.size === 1) return D.sec[[...F.topics][0]].slug;
+  const g = wholeGroup();
+  if (g) return /dataset/i.test(g.title) ? "datasets" : g.slug;
+  return "papers";
+}
+function refresh(keepLimit) {
+  if (!keepLimit) F.limit = PAGE;
+  const sel = D.groups.map(g => [g.id, selected(g.id)]).filter(([, ids]) => ids.length);
+  syncFilters(sel);
+  renderHead();
+  renderActive();
+  renderResults(sel);
+  const name = routeName();
+  if (location.hash.slice(1) !== name) { try { history.replaceState(null, "", "#" + name); } catch (e) { /* sandboxed frame */ } }
+  markNav(name === "datasets" ? "datasets" : "papers");
+}
+function reset() {
+  F.q = ""; F.tokens = []; F.topics.clear(); F.venues.clear();
+  F.y0 = D.y0; F.y1 = D.y1; F.status = "all"; F.sort = "newest"; F.limit = PAGE;
+  $("#q").value = ""; $("#sort").value = "newest";
+}
+function setQuery(v) {
+  F.q = v.trim();
+  F.tokens = norm(F.q).split(/\s+/).filter(Boolean);
+}
+
+/* ---------- learn & contribute ---------- */
+function item(r) {
+  const by = r.authors ? `<span>${esc(r.authors)}</span><span class="vn">${esc(r.venue)}&nbsp;${r.year}</span>` : `<span>${esc([r.org, r.venue && r.year ? `${r.venue} ${r.year}` : "", r.note].filter(Boolean).join(", "))}</span>`;
+  return `<li><a href="${esc(r.url || r.links?.[0]?.url)}" target="_blank" rel="noopener">${esc(r.title)}</a><div class="meta">${by}</div></li>`;
+}
+function renderLearn() {
+  const first = D.groups[0];
+  const surveys = paperSecs(first).map(id => D.sec[id]);
+  const KIND = {Book: "Books", Course: "Courses", Documentation: "Software documentation", Competition: "Competitions and leaderboards"};
+  const res = D.sections.filter(s => s.kind === "resources");
+  const isComp = s => D.resources.filter(r => r.section === s.id).every(r => r.kind === "Competition");
+  const block = s => {
+    const rs = D.resources.filter(r => r.section === s.id);
+    const kinds = [...new Set(rs.map(r => r.kind))];
+    return `<h2 id="l-${esc(s.slug)}">${esc(cap(s.title))}</h2>` + (kinds.length > 1
+      ? kinds.map(k => `<div class="kind"><h3>${esc(KIND[k] || k)}</h3><ul class="ilist">${rs.filter(r => r.kind === k).map(item).join("")}</ul></div>`).join("")
+      : `<ul class="ilist">${rs.map(item).join("")}</ul>`);
+  };
+  $("#learnL").innerHTML = surveys.map(s => `<h2 id="l-${esc(s.slug)}">${esc(cap(s.title))}</h2><ol class="ilist">${D.papers.filter(p => p.sections.includes(s.id)).sort(SORTS.newest).map(item).join("")}</ol>`).join("")
+    + res.filter(isComp).map(block).join("");
+  $("#learnR").innerHTML = res.filter(s => !isComp(s)).map(block).join("");
+}
+function renderContribute() {
+  $("#venueList").textContent = D.venues.filter(v => v !== "arXiv").slice(0, 18).join(", ") + ", and arXiv for preprints.";
+  const year = (D.meta.updated || "").slice(0, 4) || new Date().getFullYear();
+  $("#bib").textContent = `@misc{awesome_robot_navigation,\n  title  = {Awesome Robot Navigation},\n  author = {${CITE_AUTHOR}},\n  year   = {${year}},\n  url    = {${D.repo || "https://github.com/"}}\n}`;
+}
+
+/* ---------- views & events ---------- */
+function markNav(v) { for (const a of $$(".nav a[data-v]")) a.dataset.v === v ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current"); }
+function show(view, nav) {
+  for (const v of VIEWS) $("#v-" + v).hidden = v !== view;
+  $("#hero").hidden = view !== "map";
+  markNav(nav || view);
+  if (view === "papers") refresh();
+  window.scrollTo(0, 0);
+  const h = view === "map" ? $("#hero h1") : $(`#v-${view} h1`);
+  if (h && document.activeElement?.closest?.(".nav, .brand, .stop, .tstop, .strip, .conn, .bar")) h.focus({preventScroll: true});
+}
+function go(name) {
+  if (location.hash.slice(1) === name) route(); else location.hash = name;
+}
+function pick(ids) { reset(); for (const id of ids) if (D.sec[id]?.kind === "papers") F.topics.add(id); }
+let skipRoute = false;
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1)) || "map";
+  if (VIEWS.includes(h)) return show(h);
+  if (h === "datasets") { pick(paperSecs(D.groups.find(g => /dataset/i.test(g.title)) || {sections: []})); return show("papers", "datasets"); }
+  const s = D.sections.find(x => x.slug === h), g = D.groups.find(x => x.slug === h);
+  if (s && s.kind === "papers") { pick([s.id]); return show("papers"); }
+  if (s) { show("learn"); return document.getElementById("l-" + s.slug)?.scrollIntoView(); }
+  if (g) { pick(paperSecs(g)); return show("papers"); }
+  show("map");
+}
+function bind() {
+  window.addEventListener("hashchange", route);
+  $("#heroSearch").addEventListener("submit", e => {
+    e.preventDefault();
+    reset();
+    setQuery($("#hq").value);
+    $("#q").value = F.q;
+    go("papers");
+  });
+  let timer = 0;
+  $("#q").addEventListener("input", e => { clearTimeout(timer); timer = setTimeout(() => { setQuery(e.target.value); refresh(); }, 120); });
+  $("#sort").addEventListener("change", e => { F.sort = e.target.value; refresh(); });
+  $("#more").addEventListener("click", () => { F.limit += PAGE; refresh(true); });
+  $("#ftoggle").addEventListener("click", e => {
+    const open = $("#filters").classList.toggle("open");
+    e.currentTarget.setAttribute("aria-expanded", open);
+  });
+  $("#filters").addEventListener("change", e => {
+    const t = e.target;
+    if (t.name === "topic") t.checked ? F.topics.add(t.value) : F.topics.delete(t.value);
+    else if (t.name === "venue") t.checked ? F.venues.add(t.value) : F.venues.delete(t.value);
+    else if (t.name === "status") F.status = t.value;
+    else if (t.id === "y0" || t.id === "y1") {
+      F[t.id] = +t.value;
+      if (F.y0 > F.y1) t.id === "y0" ? (F.y1 = F.y0) : (F.y0 = F.y1);
+    }
+    refresh();
+  });
+  document.addEventListener("click", e => {
+    const el = e.target.closest("[data-act],[data-since],[data-rm],button.chip[data-t],[data-copy]");
+    if (!el) return;
+    if (el.dataset.act === "clear") { reset(); refresh(); }
+    else if (el.dataset.since) { F.y0 = +el.dataset.since; F.y1 = D.y1; refresh(); }
+    else if (el.dataset.rm) {
+      const k = el.dataset.rm, v = el.dataset.val;
+      if (k === "q") { setQuery(""); $("#q").value = ""; }
+      if (k === "t") F.topics.delete(v);
+      if (k === "v") F.venues.delete(v);
+      if (k === "y") { F.y0 = D.y0; F.y1 = D.y1; }
+      if (k === "s") F.status = "all";
+      refresh();
+    } else if (el.dataset.t) {
+      F.topics.has(el.dataset.t) ? F.topics.delete(el.dataset.t) : F.topics.add(el.dataset.t);
+      refresh();
+    } else if (el.dataset.copy) {
+      const text = $("#" + el.dataset.copy).textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject(new Error("no clipboard"))).then(() => { el.textContent = "Copied"; }, () => { el.textContent = "Select and copy"; });
+      setTimeout(() => { el.textContent = "Copy"; }, 1800);
+    }
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key !== "/" || e.target.closest("input, select, textarea")) return;
+    const box = $("#v-papers").hidden ? $("#hq") : $("#q");
+    if (box.offsetParent) { e.preventDefault(); box.focus(); }
+  });
+  let lastW = 0;
+  const ro = new ResizeObserver(() => { const w = $("#years").clientWidth; if (Math.abs(w - lastW) > 40) { lastW = w; renderYears(); } });
+  ro.observe($("#years"));
+}
+async function boot() {
+  let rows = EMBED;
+  if (!rows) {
+    try {
+      const r = await fetch("papers.json", {cache: "no-cache"});
+      if (!r.ok) throw new Error(r.status);
+      rows = await r.json();
+    } catch (err) {
+      $("#main").innerHTML = `<div class="band"><div class="wrap"><h1>The paper list did not load</h1><p class="lede" style="margin-top:12px">papers.json could not be fetched. If you opened this file from disk, build it with <code>python3 scripts/build_site.py --inline</code>, or serve the folder with <code>python3 -m http.server</code>.</p></div></div>`;
+      return;
+    }
+  }
+  prepare(rows);
+  if (D.repo) {
+    $("#gh").href = D.repo;
+    $("#repoLink").href = D.repo;
+    $("#issueLink").href = `${D.repo}/issues/new?template=add-paper.yml`;
+  }
+  const c = D.meta.commit ? D.meta.commit.slice(0, 7) : "";
+  $("#built").innerHTML = `Built from README.md${c ? ` at commit ${D.repo ? `<a href="${esc(D.repo)}/commit/${esc(D.meta.commit)}">${esc(c)}</a>` : esc(c)}` : ""}${D.meta.updated ? `, last changed ${esc(day(D.meta.updated))}` : ""}.`;
+  renderMap();
+  buildFilters();
+  renderLearn();
+  renderContribute();
+  bind();
+  const q0 = new URLSearchParams(location.search).get("q");
+  if (q0 && !location.hash) { setQuery(q0); $("#q").value = F.q; show("papers"); return; }
+  route();
+}
+boot();
+}
+</script>
+</body>
+</html>
